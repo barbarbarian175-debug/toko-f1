@@ -154,7 +154,7 @@
 .nb-ticket p { margin: 0; color: #c6cad3; font-family: var(--f-body); font-size: .86rem; line-height: 1.55; }
 .nb-ticket-mark { position: absolute; right: 14px; bottom: -24px; color: rgba(255, 255, 255, .055); font-size: 7rem; font-weight: 900; font-style: italic; line-height: 1; pointer-events: none; }
 .nb-ticket-media { position: relative; display: grid; place-items: center; height: 148px; overflow: hidden; background: #090a0d; }
-.nb-ticket-backdrop { position: absolute; inset: -8px; background-image: var(--nb-ticket-photo); background-position: center; background-size: cover; filter: blur(12px) brightness(.5); transform: scale(1.08); }
+.nb-ticket-backdrop { position: absolute; inset: -8px; background-position: center; background-size: cover; filter: blur(12px) brightness(.5); transform: scale(1.08); }
 .nb-ticket-media img { position: relative; z-index: 1; display: block; width: 100%; height: 100%; padding: 8px 12px; object-fit: contain; transition: transform .35s ease; }
 .nb-ticket.has-photo:hover .nb-ticket-media img { transform: scale(1.045); }
 .nb-ticket.has-photo .nb-ticket-content { padding-top: 15px; }
@@ -163,7 +163,7 @@
 .nb-flag { min-width: 0; overflow: hidden; padding: 10px; border: 1px solid var(--nb-line); border-radius: 14px; background: rgba(255, 255, 255, .045); text-align: left; transition: transform .24s ease, border-color .24s ease, background .24s ease; }
 .nb-flag:hover { animation: nb-flag-flutter .42s ease-in-out; border-color: rgba(255, 255, 255, .38); background: rgba(255, 255, 255, .075); }
 .nb-flag-photo { position: relative; display: grid; place-items: center; height: 78px; overflow: hidden; margin-bottom: 10px; border-radius: 8px; background: #090a0d; }
-.nb-flag-backdrop { position: absolute; inset: -7px; background-image: var(--nb-flag-photo); background-position: center; background-size: cover; filter: blur(10px) brightness(.45); transform: scale(1.08); }
+.nb-flag-backdrop { position: absolute; inset: -7px; background-position: center; background-size: cover; filter: blur(10px) brightness(.45); transform: scale(1.08); }
 .nb-flag-photo img { position: relative; z-index: 1; display: block; width: 100%; height: 100%; padding: 5px; object-fit: contain; }
 .nb-flag b { display: block; color: #fff; font-size: .84rem; }
 .nb-flag > span { display: block; margin-top: 3px; color: #a9adb8; font-family: var(--f-body); font-size: .74rem; line-height: 1.4; }

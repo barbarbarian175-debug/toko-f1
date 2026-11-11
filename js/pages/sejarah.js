@@ -7,7 +7,7 @@
     /* ---------- DATA (foto: taruh di assets/images/sejarah/NAMA.jpg, kalau tidak ada otomatis pakai link) ---------- */
     const HISTORY = [
         {
-            year: '1950', date: '13 MEI', img: '1950.jpg', url: 'https://i.pinimg.com/736x/64/2b/4b/642b4bb0b70fa1b2b7e75f776ef42016.jpg', cap: 'Silverstone, 1950',
+            year: '1950', date: '13 MEI', img: '1950.jpg', url: 'assets/images/pin/642b4bb0b70fa1b2b7e75f776ef42016.jpg', cap: 'Silverstone, 1950',
             title: 'Grand Prix F1 Pertama di Silverstone',
             text: [
                 'Kejuaraan Dunia Formula 1 resmi dimulai di Sirkuit Silverstone, Inggris, pada GP Inggris 13 Mei 1950. Sirkuit ini dibangun di atas bekas pangkalan udara militer RAF, dan balapan perdana tersebut disaksikan langsung oleh Raja George VI.',
@@ -17,7 +17,7 @@
             ]
         },
         {
-            year: '1958', date: 'GELAR KONSTRUKTOR', img: '1958.jpg', url: 'https://i.pinimg.com/1200x/bd/95/56/bd95567c822fb5e34eb1ac5189bdebab.jpg', cap: 'Vanwall, 1958',
+            year: '1958', date: 'GELAR KONSTRUKTOR', img: '1958.jpg', url: 'assets/images/pin/bd95567c822fb5e34eb1ac5189bdebab.jpg', cap: 'Vanwall, 1958',
             title: 'Juara Konstruktor Pertama',
             text: [
                 'Piala konstruktor mulai diperebutkan pada 1958, dan tim Inggris Vanwall menjadi yang pertama merebutnya. Keberhasilan ini menandai bangkitnya industri balap Inggris yang sebelumnya kerap berada di bawah bayang-bayang tim Italia.',
@@ -27,7 +27,7 @@
             ]
         },
         {
-            year: '1960–87', date: 'ERA KLASIK', img: 'era-klasik.jpg', url: 'https://i.pinimg.com/736x/9d/45/fd/9d45fd31374996f322e643c1932604cc.jpg', cap: 'F1 era klasik, 1960-an sampai 1980-an',
+            year: '1960–87', date: 'ERA KLASIK', img: 'era-klasik.jpg', url: 'assets/images/pin/9d45fd31374996f322e643c1932604cc.jpg', cap: 'F1 era klasik, 1960-an sampai 1980-an',
             title: 'Dari Mesin Belakang ke Era Turbo',
             text: [
                 'Dari 1960-an sampai pertengahan 1980-an, F1 berubah lebih cepat daripada periode mana pun sebelumnya. Mobil berganti rupa dari kendaraan bermesin depan yang masih mirip mobil balap 1950-an menjadi mesin aerodinamis lengkap dengan sayap dan turbo. Dua hal berjalan bersamaan: kecepatan melonjak tajam, sementara bahaya di lintasan masih sangat besar sehingga para pembalap mulai menuntut keselamatan.',
@@ -43,7 +43,7 @@
             ]
         },
         {
-            year: '1976', date: '24 OKTOBER', img: '1976.jpg', url: 'https://i.pinimg.com/1200x/43/b7/80/43b780093a65e99b1c64e62282b9907e.jpg', cap: 'Lauda dan Hunt, 1976',
+            year: '1976', date: '24 OKTOBER', img: '1976.jpg', url: 'assets/images/pin/43b780093a65e99b1c64e62282b9907e.jpg', cap: 'Lauda dan Hunt, 1976',
             title: 'Rivalitas Lauda dan Hunt',
             text: [
                 'Musim 1976 mempertemukan dua pembalap dengan karakter yang bertolak belakang: Niki Lauda yang disiplin dan penuh perhitungan bersama Ferrari, melawan James Hunt yang flamboyan bersama McLaren.',
@@ -53,7 +53,7 @@
             ]
         },
         {
-            year: '1988–90', date: 'MCLAREN HONDA', img: 'senna-prost.jpg', url: 'https://s1.cdn.autoevolution.com/assets/images/news/gallery/senna-vs-prost-one-of-the-most-heated-rivalries-in-the-history-of-motorsport_3.jpg', cap: 'Senna dan Prost, McLaren',
+            year: '1988–90', date: 'MCLAREN HONDA', img: 'senna-prost.jpg', url: 'assets/images/sejarah/senna-prost.jpg', cap: 'Senna dan Prost, McLaren',
             title: 'Rivalitas Senna dan Prost',
             text: [
                 'Tidak ada rivalitas di F1 yang lebih sering diceritakan ulang daripada Ayrton Senna melawan Alain Prost. Keduanya satu tim di McLaren pada 1988 dan 1989, dengan mobil dan mesin Honda yang sama, sehingga tidak ada alasan teknis untuk menjelaskan siapa yang kalah. Yang tersisa hanya soal siapa yang lebih cepat, lebih berani, dan lebih lihai, baik di lintasan maupun di balik meja.',
@@ -68,7 +68,7 @@
             ]
         },
         {
-            year: '1994', date: '1 MEI', img: '1994.jpg', url: 'https://i.pinimg.com/1200x/69/59/8f/69598f18bc83c101638ee6944be95ea6.jpg', cap: 'Imola, 1994',
+            year: '1994', date: '1 MEI', img: '1994.jpg', url: 'assets/images/pin/69598f18bc83c101638ee6944be95ea6.jpg', cap: 'Imola, 1994',
             title: 'Imola dan Era Keselamatan',
             text: [
                 'Akhir pekan GP San Marino 1994 menjadi salah satu yang paling kelam dalam sejarah F1. Pada Jumat, Rubens Barrichello selamat dari kecelakaan hebat, lalu pada Sabtu Roland Ratzenberger meninggal dunia saat kualifikasi.',
@@ -78,7 +78,7 @@
             ]
         },
         {
-            year: '2000', date: '2000 - 2004', img: '2000.jpg', url: 'https://i.pinimg.com/1200x/54/a2/3a/54a23a51520ef2723cf392622678c4dc.jpg', cap: 'Ferrari, awal 2000-an',
+            year: '2000', date: '2000 - 2004', img: '2000.jpg', url: 'assets/images/pin/54a23a51520ef2723cf392622678c4dc.jpg', cap: 'Ferrari, awal 2000-an',
             title: 'Dominasi Schumacher dan Ferrari',
             text: [
                 'Michael Schumacher meraih lima gelar dunia beruntun bersama Ferrari pada 2000 sampai 2004. Gelar 2000 sangat berarti karena menjadi gelar pembalap pertama Ferrari setelah penantian sekitar 21 tahun.',
@@ -88,7 +88,7 @@
             ]
         },
         {
-            year: '2005–13', date: 'DARI V10 KE V8', img: '2005.jpg', url: 'https://wallpapers.com/assets/images/hd/f1-renault-r25-2005-udjwjrumtocelfss.jpg', cap: 'Renault R25, 2005',
+            year: '2005–13', date: 'DARI V10 KE V8', img: '2005.jpg', url: 'assets/images/sejarah/2005.jpg', cap: 'Renault R25, 2005',
             title: 'Alonso, Hamilton, dan Empat Gelar Vettel',
             text: [
                 'Setelah lima gelar beruntun Schumacher, F1 memasuki sembilan musim yang penuh pergantian juara. Dari 2005 sampai 2013 gelar dimenangi lima pembalap berbeda, mesin berubah dari V10 ke V8, dan generasi muda yang haus kemenangan menggeser pembalap lama.',
@@ -103,7 +103,7 @@
             ]
         },
         {
-            year: '2014', date: '16 MARET', img: '2014.jpg', url: 'https://i.pinimg.com/1200x/6a/36/73/6a36732032bd445c2dff06ea18a4ff35.jpg', cap: 'Era hybrid, 2014',
+            year: '2014', date: '16 MARET', img: '2014.jpg', url: 'assets/images/pin/6a36732032bd445c2dff06ea18a4ff35.jpg', cap: 'Era hybrid, 2014',
             title: 'Dimulainya Era Hybrid',
             text: [
                 'Mesin V6 turbo hybrid 1,6 liter menggantikan V8 beraspirasi alami di musim 2014, dimulai dari GP Australia di Melbourne. Unit tenaga baru ini menggabungkan mesin pembakaran dengan sistem pemulihan energi (ERS).',
@@ -113,7 +113,7 @@
             ]
         },
         {
-            year: '2021', date: '12 DESEMBER', img: '2021.jpg', url: 'https://i.pinimg.com/736x/bd/5a/36/bd5a36e82055c30f22326f31e547c529.jpg', cap: 'Abu Dhabi, 2021',
+            year: '2021', date: '12 DESEMBER', img: '2021.jpg', url: 'assets/images/pin/bd5a36e82055c30f22326f31e547c529.jpg', cap: 'Abu Dhabi, 2021',
             title: 'Penentuan Gelar di Abu Dhabi',
             text: [
                 'Max Verstappen dan Lewis Hamilton datang ke balapan terakhir di Abu Dhabi dengan poin yang sama, sesuatu yang sangat jarang terjadi dalam sejarah F1.',
@@ -123,7 +123,7 @@
             ]
         },
         {
-            year: '2022–25', date: 'ERA VERSTAPPEN', img: '2022.jpg', url: 'https://i.pinimg.com/736x/72/61/ae/7261ae040fb51029ec63723f39c950ac.jpg', cap: 'Max Verstappen, Red Bull',
+            year: '2022–25', date: 'ERA VERSTAPPEN', img: '2022.jpg', url: 'assets/images/pin/7261ae040fb51029ec63723f39c950ac.jpg', cap: 'Max Verstappen, Red Bull',
             title: 'Puncak Max Verstappen dan Era Ground Effect',
             text: [
                 'Musim 2022 membuka babak baru dengan dua perubahan besar: aturan mobil yang menghidupkan lagi ground effect agar mobil lebih mudah saling membuntuti, dan roda berukuran 18 inci menggantikan 13 inci. Dari situ muncul era yang didominasi satu nama, Max Verstappen.',
@@ -138,7 +138,7 @@
             ]
         },
         {
-            year: '2026', date: 'ERA BARU', img: '2026.jpg', url: 'https://i.pinimg.com/736x/6d/a7/a7/6da7a72d2baa5052915d6cfd982c99d3.jpg', cap: 'Grid 2026',
+            year: '2026', date: 'ERA BARU', img: '2026.jpg', url: 'assets/images/pin/6da7a72d2baa5052915d6cfd982c99d3.jpg', cap: 'Grid 2026',
             title: 'Regulasi Baru dan Dua Pendatang',
             text: [
                 'Aturan mobil dan mesin berubah besar di 2026. Mobil dibuat lebih kecil dan ringan, dengan aerodinamika aktif yang sayapnya bisa menyesuaikan posisi.',

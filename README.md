@@ -30,7 +30,7 @@ Semua file logika dan interaksi (JavaScript).
 | Folder | Fungsi | Contoh file |
 |---|---|---|
 | `js/components/` | Script komponen UI yang dipakai ulang: popup, carousel, efek hero, animasi logo, kartu navigasi, feed berita. | `ban-popup.js`, `depth-carousel.js`, `liquid-hero.js`, `logoloop.js`, `navcards.js`, `komponen.js`, `news-feed.js` |
-| `js/pages/` | Script khusus satu halaman. | `bacaan.js`, `balapan.js`, `hasil.js`, `katalog.js`, `klasemen.js`, `kuis.js`, `pembalap.js`, `pembalap-grid.js` |
+| `js/pages/` | Script khusus satu halaman. | `bacaan.js`, `balapan.js`, `hasil.js`, `klasemen.js`, `kuis.js`, `pembalap.js`, `pembalap-grid.js` |
 | `js/utils/` | Fungsi bantu (helper) yang dipakai banyak file, misalnya format tanggal, fetch data, validasi. | `helpers.js`, `api.js` |
 
 ### `backend/`
@@ -39,13 +39,41 @@ Sisi server (PHP + MySQL) untuk mengambil dan menyimpan data.
 | Folder / File | Fungsi |
 |---|---|
 | `backend/config/` | Konfigurasi koneksi database dan konstanta aplikasi (`database.php`). |
-| `backend/api/` | Endpoint yang dipanggil JavaScript lewat fetch, misalnya data pembalap, klasemen, hasil, kuis, dan login. |
-| `backend/models/` | Query dan logika pengolahan data, dipisah dari endpoint supaya rapi. |
-| `backend/database/` | File `.sql` berisi skema tabel dan data awal (seed). Import ke MySQL saat pertama setup. |
+| `backend/api/` | Endpoint JSON: `drivers.php`, `teams.php`, `circuits.php` (baca dari database `f1_website`), `standings.php` & `results.php` (meneruskan data live Jolpica), `status.php` (health-check + hitung isi tabel). |
+| `backend/models/` | Query dan logika pengolahan data, dipisah dari endpoint supaya rapi (`Driver.php`, `Team.php`, `Circuit.php`). |
+| `backend/database/` | File `.sql` berisi skema tabel dan data awal (seed). Import ke MySQL saat pertama setup. Dibuat otomatis dari data JS lewat `gen-f1-db.js` — jangan edit manual. |
 | `backend/.env.example` | Contoh pengaturan environment (host, user, password database). Salin menjadi `.env` dan isi sesuai komputer masing-masing. **Jangan upload `.env` asli ke GitHub.** |
 
+### Menjalankan back end (XAMPP)
+
+1. Jalankan Apache & MySQL dari XAMPP Control Panel.
+2. Import skema + data awal (11 tim, 22 pembalap, 24 sirkuit musim 2026):
+   `C:\xampp82\mysql\bin\mysql.exe -u root < backend\database\schema.sql`
+3. Cek: buka `http://localhost/toko/backend/api/status.php` — harus `{"status":"ok","db":"ok","counts":{"teams":11,"drivers":22,"circuits":24}}`.
+4. Endpoint lain: `drivers.php` (`?id=5`, `?team=3`), `teams.php` (`?id=3`), `circuits.php` (`?id=5`), `standings.php` (`?type=constructor`), `results.php` (`?season=2026&round=5`).
+
+Catatan: frontend saat ini masih mengambil data live langsung dari API publik
+(Jolpica/OpenF1/rss2json), jadi situs tetap jalan walau database belum di-import.
+Endpoint di atas sudah siap dipakai kalau nanti frontend mau dipindah ke API lokal.
+
 ### `archive/`
-Tempat file lama atau cadangan yang belum dipakai tapi belum mau dihapus (isi folder `arsip` sebelumnya).
+Tempat file lama atau cadangan yang belum dipakai tapi belum mau dihapus.
+Sejak 2026-11-11 berisi juga `shop-admin/` (login + admin toko baju yang dulu
+nyangkut di situs F1: `login.php`, `logout.php`, `me.php`, `config.php`,
+`admin/`) dan `database-toko.sql` (skema toko, bukan F1). File-file itu tidak
+dihapus, cuma dipindah supaya tidak tercampur dengan situs F1. Kalau masih
+dibutuhkan, buka langsung `http://localhost/toko/archive/shop-admin/login.php`.
+
+### Gambar
+Semua gambar yang dulu numpang di situs lain sekarang disimpan lokal:
+`assets/images/pin/` (64 gambar dari Pinterest, 5,0 MB),
+`assets/images/ext/` (15 gambar dari berbagai situs berita, 5,7 MB),
+foto hero di `assets/images/bg/hero-f1.jpg`, dan foto sejarah/komponen di
+`assets/images/sejarah/` + `assets/images/komponen/` (5 foto dari Wikimedia
+Commons, menggantikan 5 link yang sudah mati/404: Senna-Prost, Renault R25,
+monocoque, power unit Honda, sayap depan). Tidak ada lagi referensi gambar
+eksternal di kode — kecuali bendera kecil di klasemen/hasil yang memakai
+flagcdn.com. Situs tidak bergantung pada link luar untuk gambarnya.
 
 ---
 
@@ -55,8 +83,8 @@ Tempat file lama atau cadangan yang belum dipakai tapi belum mau dihapus (isi fo
 |---|---|---|
 | Beranda | Halaman awal dan pengenalan F1 untuk pemula | `index.html`, `beranda-pemula.css`, `liquid-hero.js`, `navcards.js` |
 | Pembalap | Daftar dan profil pembalap | `pembalap.js`, `pembalap-grid.css/js`, `profil.css` |
-| Tim | Daftar tim F1 | `katalog.css/js`, `komponen.css/js` |
-| Sirkuit | Informasi sirkuit balapan | `katalog.css/js` |
+| Tim | Daftar tim F1 | `teams.js`, `tim-detail.js` |
+| Sirkuit | Informasi sirkuit balapan | `script.js` (data `circuitsData`) |
 | Klasemen | Klasemen pembalap dan konstruktor | `klasemen.js` |
 | Hasil | Hasil tiap balapan | `hasil.js` |
 | Schedule | Jadwal balapan | `balapan.js` |

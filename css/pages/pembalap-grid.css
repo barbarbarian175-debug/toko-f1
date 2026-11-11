@@ -262,8 +262,8 @@ body.theme-drivers {
    bisa gagal dimuat di sebagian browser.
    ========================================================= */
 body.theme-detail {
-    --dg-bg: url("https://www.f1-fansite.com/wp-content/uploads/2021/03/GP2015_153932_54I4283.jpg");
-    /* gambar sebelumnya: https://i.pinimg.com/736x/b1/51/18/b151181cac061e631d6c09d3f6c9b72d.jpg */
+    --dg-bg: url("../../assets/images/ext/GP2015_153932_54I4283.jpg");
+    /* gambar sebelumnya: ../../assets/images/pin/b151181cac061e631d6c09d3f6c9b72d.jpg */
 }
 body.theme-detail::before,
 body.theme-detail::after {

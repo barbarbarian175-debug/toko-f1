@@ -23,7 +23,7 @@
             'Di luar kuliah, saya suka belajar coding dengan membuat proyek kecil dan mengikuti dunia Formula 1. Website ini menjadi ruang latihan untuk menggabungkan keduanya: mencoba hal baru di web sambil berbagi cerita tentang olahraga yang saya ikuti.'
         ],
         instagram: 'https://www.instagram.com/ikbarrputra/',
-        instagramLogo: 'https://www.freepnglogos.com/uploads/logo-ig-png/logo-ig-png-instagram-logo-camel-productions-website-25.png',
+        instagramLogo: 'assets/images/ext/logo-ig-png-instagram-logo-camel-productions-website-25.png',
         skills: [
             { name: 'HTML & CSS', note: 'Struktur dan tampilan web', value: 72 },
             { name: 'JavaScript', note: 'Interaksi halaman', value: 58 },
@@ -31,10 +31,10 @@
             { name: 'Editing video', note: 'Eksplorasi kreatif', value: 46 }
         ],
         interests: [
-            { image: 'https://logos-world.net/wp-content/uploads/2021/10/Python-Emblem.png', alt: 'Logo Python', name: 'Ngoding', note: 'Membuat proyek kecil' },
+            { image: 'assets/images/ext/Python-Emblem.png', alt: 'Logo Python', name: 'Ngoding', note: 'Membuat proyek kecil' },
             { image: 'assets/images/logo-f1.png', alt: 'Logo F1', name: 'Formula 1', note: 'Balapan dan teknologi' },
-            { icon: 'https://minervainfotech.com/blog/wp-content/uploads/2019/09/Untitled-6-1920x1280.jpg', name: 'UI/UX', note: 'Visual dan antarmuka' },
-            { image: 'https://static.vecteezy.com/system/resources/previews/022/101/098/large_2x/spotify-logo-transparent-free-png.png', alt: 'Logo Spotify', name: 'Spotify', note: 'Dengar playlist saya', href: 'https://open.spotify.com/user/315g5ihbzywutde7ggv4ktlqhjee?si=602605ffafa844f1' }
+            { icon: 'assets/images/ext/Untitled-6-1920x1280.jpg', name: 'UI/UX', note: 'Visual dan antarmuka' },
+            { image: 'assets/images/ext/spotify-logo-transparent-free-png.png', alt: 'Logo Spotify', name: 'Spotify', note: 'Dengar playlist saya', href: 'https://open.spotify.com/user/315g5ihbzywutde7ggv4ktlqhjee?si=602605ffafa844f1' }
         ]
     };
 

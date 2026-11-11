@@ -17,17 +17,17 @@
 
     /* Logo tim (sama dengan teamLogos di script.js). Ganti link di sini kalau mau ubah logo. */
     const LOGOS = {
-        'McLaren': 'https://i.pinimg.com/1200x/72/64/4a/72644aef0c75a11905a848d485ba2fad.jpg',
-        'Haas': 'https://i.pinimg.com/1200x/92/fd/43/92fd431a41b0fadeee14fd11702680cb.jpg',
-        'Alpine': 'https://i.pinimg.com/1200x/89/65/2d/89652d94b80ad8d9bf6a59b2be5210d7.jpg',
-        'Ferrari': 'https://i.pinimg.com/736x/25/7f/fe/257ffe9204fa0004ff97fe9fdcb5c99b.jpg',
-        'Red Bull': 'https://i.pinimg.com/1200x/28/ee/6c/28ee6c55b8e3d6414342daf10d97fe5a.jpg',
-        'Racing Bulls': 'https://i.pinimg.com/736x/42/ad/59/42ad594511fbde88971da4812f72e293.jpg',
-        'Cadillac': 'https://i.pinimg.com/736x/92/3d/58/923d581d5325793b207ccba147d50ed5.jpg',
-        'Mercedes': 'https://i.pinimg.com/736x/31/fb/08/31fb0838a14408a5cd6fa946d277cbbb.jpg',
-        'Williams': 'https://i.pinimg.com/736x/ea/35/df/ea35df160123cc7a1383d329e63c7ddb.jpg',
-        'Audi': 'https://i.pinimg.com/736x/b0/f7/eb/b0f7eb6e9c6d5923a044bf4bfa9bcd68.jpg',
-        'Aston Martin': 'https://i.pinimg.com/1200x/b6/4a/57/b64a5745c7786e8b5c96df096eeebb69.jpg'
+        'McLaren': 'assets/images/pin/72644aef0c75a11905a848d485ba2fad.jpg',
+        'Haas': 'assets/images/pin/92fd431a41b0fadeee14fd11702680cb.jpg',
+        'Alpine': 'assets/images/pin/89652d94b80ad8d9bf6a59b2be5210d7.jpg',
+        'Ferrari': 'assets/images/pin/257ffe9204fa0004ff97fe9fdcb5c99b.jpg',
+        'Red Bull': 'assets/images/pin/28ee6c55b8e3d6414342daf10d97fe5a.jpg',
+        'Racing Bulls': 'assets/images/pin/42ad594511fbde88971da4812f72e293.jpg',
+        'Cadillac': 'assets/images/pin/923d581d5325793b207ccba147d50ed5.jpg',
+        'Mercedes': 'assets/images/pin/31fb0838a14408a5cd6fa946d277cbbb.jpg',
+        'Williams': 'assets/images/pin/ea35df160123cc7a1383d329e63c7ddb.jpg',
+        'Audi': 'assets/images/pin/b0f7eb6e9c6d5923a044bf4bfa9bcd68.jpg',
+        'Aston Martin': 'assets/images/pin/b64a5745c7786e8b5c96df096eeebb69.jpg'
     };
 
     const INFO = {

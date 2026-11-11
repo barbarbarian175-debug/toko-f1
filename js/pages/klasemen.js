@@ -32,17 +32,17 @@
     ];
     // Logo tim (link yang sama dengan yang dipakai di script.js)
     const TEAM_LOGO = {
-        'mclaren': 'https://i.pinimg.com/1200x/72/64/4a/72644aef0c75a11905a848d485ba2fad.jpg',
-        'haas': 'https://i.pinimg.com/1200x/92/fd/43/92fd431a41b0fadeee14fd11702680cb.jpg',
-        'alpine': 'https://i.pinimg.com/1200x/89/65/2d/89652d94b80ad8d9bf6a59b2be5210d7.jpg',
-        'ferrari': 'https://i.pinimg.com/736x/25/7f/fe/257ffe9204fa0004ff97fe9fdcb5c99b.jpg',
-        'racing bulls': 'https://i.pinimg.com/736x/42/ad/59/42ad594511fbde88971da4812f72e293.jpg',
-        'red bull': 'https://i.pinimg.com/1200x/28/ee/6c/28ee6c55b8e3d6414342daf10d97fe5a.jpg',
-        'cadillac': 'https://i.pinimg.com/736x/92/3d/58/923d581d5325793b207ccba147d50ed5.jpg',
-        'mercedes': 'https://i.pinimg.com/736x/31/fb/08/31fb0838a14408a5cd6fa946d277cbbb.jpg',
-        'williams': 'https://i.pinimg.com/736x/ea/35/df/ea35df160123cc7a1383d329e63c7ddb.jpg',
-        'audi': 'https://i.pinimg.com/736x/b0/f7/eb/b0f7eb6e9c6d5923a044bf4bfa9bcd68.jpg',
-        'aston martin': 'https://i.pinimg.com/1200x/b6/4a/57/b64a5745c7786e8b5c96df096eeebb69.jpg'
+        'mclaren': 'assets/images/pin/72644aef0c75a11905a848d485ba2fad.jpg',
+        'haas': 'assets/images/pin/92fd431a41b0fadeee14fd11702680cb.jpg',
+        'alpine': 'assets/images/pin/89652d94b80ad8d9bf6a59b2be5210d7.jpg',
+        'ferrari': 'assets/images/pin/257ffe9204fa0004ff97fe9fdcb5c99b.jpg',
+        'racing bulls': 'assets/images/pin/42ad594511fbde88971da4812f72e293.jpg',
+        'red bull': 'assets/images/pin/28ee6c55b8e3d6414342daf10d97fe5a.jpg',
+        'cadillac': 'assets/images/pin/923d581d5325793b207ccba147d50ed5.jpg',
+        'mercedes': 'assets/images/pin/31fb0838a14408a5cd6fa946d277cbbb.jpg',
+        'williams': 'assets/images/pin/ea35df160123cc7a1383d329e63c7ddb.jpg',
+        'audi': 'assets/images/pin/b0f7eb6e9c6d5923a044bf4bfa9bcd68.jpg',
+        'aston martin': 'assets/images/pin/b64a5745c7786e8b5c96df096eeebb69.jpg'
     };
     // nama lain yang mungkin dikirim API untuk tim yang sama
     const TEAM_ALIAS = [['rb f1', 'racing bulls'], ['visa cash', 'racing bulls'], ['sauber', 'audi']];

@@ -18,28 +18,28 @@
 
     /* ---------- foto khusus halaman detail (foto kartu di daftar pembalap tidak berubah) ---------- */
     const DETAIL_PHOTOS = {
-        'George Russell': 'https://i.pinimg.com/1200x/33/5a/43/335a439401a80a106c69ac66837744d5.jpg',
-        'Fernando Alonso': 'https://i.pinimg.com/1200x/ea/3e/b6/ea3eb673a5f7c92eb556b3de131f1211.jpg',
-        'Alex Albon': 'https://i.pinimg.com/736x/af/cd/5c/afcd5ceb8327048b73f2431cbe8f1267.jpg',
-        'Pierre Gasly': 'https://i.pinimg.com/736x/65/d3/fc/65d3fc19af57e89719a355dd54772b4c.jpg',
-        'Max Verstappen': 'https://i.pinimg.com/736x/0c/30/38/0c3038a5d8b460f0a4cc209d494b4b03.jpg',
-        'Nico Hulkenberg': 'https://i.pinimg.com/736x/1d/b8/8e/1db88ee5ef56b9e8b8caf98198da1243.jpg',
-        'Carlos Sainz': 'https://i.pinimg.com/736x/75/bb/25/75bb25b5c589f05dcaa3833571bf45ba.jpg',
-        'Andrea Kimi Antonelli': 'https://i.pinimg.com/736x/4e/1e/1d/4e1e1df5d82ebb1988aba491d6beb1d4.jpg',
-        'Oscar Piastri': 'https://i.pinimg.com/736x/9a/3e/36/9a3e3637ba9df9668efdf110f6d7b7f1.jpg',
-        'Lewis Hamilton': 'https://i.pinimg.com/1200x/b0/b7/39/b0b73931f614fabd2705534742a82dfc.jpg',
-        'Charles Leclerc': 'https://i.pinimg.com/736x/8e/76/1e/8e761e6520e7ed1a624945a23478d3dc.jpg',
-        'Lando Norris': 'https://i.pinimg.com/736x/15/1b/c7/151bc722353f65da3a81b8a3d2db449c.jpg',
-        'Lance Stroll': 'https://i.pinimg.com/736x/cb/a7/6c/cba76ca425678e5bf44f8c6b1f3ed25f.jpg',
-        'Esteban Ocon': 'https://i.pinimg.com/736x/cc/81/2a/cc812a48ef657cd4bd0289cd53baf43a.jpg',
-        'Oliver Bearman': 'https://i.pinimg.com/736x/bc/5d/2e/bc5d2e467dc84b5994ce7e00755abf9c.jpg',
-        'Gabriel Bortoleto': 'https://i.pinimg.com/736x/b6/44/f9/b644f93c373790bf186f054bdb33134f.jpg',
-        'Liam Lawson': 'https://i.pinimg.com/736x/1b/fa/8a/1bfa8a10f93d95010037a850b473ef1b.jpg',
-        'Arvid Lindblad': 'https://i.pinimg.com/736x/97/eb/e5/97ebe5e3b1eb0e319704d16c4c30b79a.jpg',
-        'Isack Hadjar': 'https://i.pinimg.com/736x/5a/e6/e9/5ae6e9ab756fd19632932264482fb84f.jpg',
-        'Franco Colapinto': 'https://i.pinimg.com/736x/db/2c/fa/db2cfaff50027d168794aaecae07643e.jpg',
-        'Sergio Pérez': 'https://i.pinimg.com/736x/e4/2e/f8/e42ef88f0fdc561ef1bca0999dbaf170.jpg',
-        'Valtteri Bottas': 'https://i.pinimg.com/736x/4f/ea/40/4fea40f0ed8d100d1b294f2b08594b89.jpg'
+        'George Russell': 'assets/images/pin/335a439401a80a106c69ac66837744d5.jpg',
+        'Fernando Alonso': 'assets/images/pin/ea3eb673a5f7c92eb556b3de131f1211.jpg',
+        'Alex Albon': 'assets/images/pin/afcd5ceb8327048b73f2431cbe8f1267.jpg',
+        'Pierre Gasly': 'assets/images/pin/65d3fc19af57e89719a355dd54772b4c.jpg',
+        'Max Verstappen': 'assets/images/pin/0c3038a5d8b460f0a4cc209d494b4b03.jpg',
+        'Nico Hulkenberg': 'assets/images/pin/1db88ee5ef56b9e8b8caf98198da1243.jpg',
+        'Carlos Sainz': 'assets/images/pin/75bb25b5c589f05dcaa3833571bf45ba.jpg',
+        'Andrea Kimi Antonelli': 'assets/images/pin/4e1e1df5d82ebb1988aba491d6beb1d4.jpg',
+        'Oscar Piastri': 'assets/images/pin/9a3e3637ba9df9668efdf110f6d7b7f1.jpg',
+        'Lewis Hamilton': 'assets/images/pin/b0b73931f614fabd2705534742a82dfc.jpg',
+        'Charles Leclerc': 'assets/images/pin/8e761e6520e7ed1a624945a23478d3dc.jpg',
+        'Lando Norris': 'assets/images/pin/151bc722353f65da3a81b8a3d2db449c.jpg',
+        'Lance Stroll': 'assets/images/pin/cba76ca425678e5bf44f8c6b1f3ed25f.jpg',
+        'Esteban Ocon': 'assets/images/pin/cc812a48ef657cd4bd0289cd53baf43a.jpg',
+        'Oliver Bearman': 'assets/images/pin/bc5d2e467dc84b5994ce7e00755abf9c.jpg',
+        'Gabriel Bortoleto': 'assets/images/pin/b644f93c373790bf186f054bdb33134f.jpg',
+        'Liam Lawson': 'assets/images/pin/1bfa8a10f93d95010037a850b473ef1b.jpg',
+        'Arvid Lindblad': 'assets/images/pin/97ebe5e3b1eb0e319704d16c4c30b79a.jpg',
+        'Isack Hadjar': 'assets/images/pin/5ae6e9ab756fd19632932264482fb84f.jpg',
+        'Franco Colapinto': 'assets/images/pin/db2cfaff50027d168794aaecae07643e.jpg',
+        'Sergio Pérez': 'assets/images/pin/e42ef88f0fdc561ef1bca0999dbaf170.jpg',
+        'Valtteri Bottas': 'assets/images/pin/4fea40f0ed8d100d1b294f2b08594b89.jpg'
     };
     const detailPhoto = d => DETAIL_PHOTOS[d.name] || d.photo;
 
@@ -67,17 +67,17 @@
 
     // logo tim (sumber sama dengan showcase tim di Beranda)
     const TEAM_LOGOS = {
-        'mclaren': 'https://i.pinimg.com/1200x/72/64/4a/72644aef0c75a11905a848d485ba2fad.jpg',
-        'haas': 'https://i.pinimg.com/1200x/92/fd/43/92fd431a41b0fadeee14fd11702680cb.jpg',
-        'alpine': 'https://i.pinimg.com/1200x/89/65/2d/89652d94b80ad8d9bf6a59b2be5210d7.jpg',
-        'ferrari': 'https://i.pinimg.com/736x/25/7f/fe/257ffe9204fa0004ff97fe9fdcb5c99b.jpg',
-        'red bull': 'https://i.pinimg.com/1200x/28/ee/6c/28ee6c55b8e3d6414342daf10d97fe5a.jpg',
-        'racing bulls': 'https://i.pinimg.com/736x/42/ad/59/42ad594511fbde88971da4812f72e293.jpg',
-        'cadillac': 'https://i.pinimg.com/736x/92/3d/58/923d581d5325793b207ccba147d50ed5.jpg',
-        'mercedes': 'https://i.pinimg.com/736x/31/fb/08/31fb0838a14408a5cd6fa946d277cbbb.jpg',
-        'williams': 'https://i.pinimg.com/736x/ea/35/df/ea35df160123cc7a1383d329e63c7ddb.jpg',
-        'audi': 'https://i.pinimg.com/736x/b0/f7/eb/b0f7eb6e9c6d5923a044bf4bfa9bcd68.jpg',
-        'aston martin': 'https://i.pinimg.com/1200x/b6/4a/57/b64a5745c7786e8b5c96df096eeebb69.jpg'
+        'mclaren': 'assets/images/pin/72644aef0c75a11905a848d485ba2fad.jpg',
+        'haas': 'assets/images/pin/92fd431a41b0fadeee14fd11702680cb.jpg',
+        'alpine': 'assets/images/pin/89652d94b80ad8d9bf6a59b2be5210d7.jpg',
+        'ferrari': 'assets/images/pin/257ffe9204fa0004ff97fe9fdcb5c99b.jpg',
+        'red bull': 'assets/images/pin/28ee6c55b8e3d6414342daf10d97fe5a.jpg',
+        'racing bulls': 'assets/images/pin/42ad594511fbde88971da4812f72e293.jpg',
+        'cadillac': 'assets/images/pin/923d581d5325793b207ccba147d50ed5.jpg',
+        'mercedes': 'assets/images/pin/31fb0838a14408a5cd6fa946d277cbbb.jpg',
+        'williams': 'assets/images/pin/ea35df160123cc7a1383d329e63c7ddb.jpg',
+        'audi': 'assets/images/pin/b0f7eb6e9c6d5923a044bf4bfa9bcd68.jpg',
+        'aston martin': 'assets/images/pin/b64a5745c7786e8b5c96df096eeebb69.jpg'
     };
     const teamLogo = d => {
         const text = String(d.team || '').toLowerCase();

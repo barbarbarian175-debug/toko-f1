@@ -9,12 +9,12 @@
     if (!host) return;
 
     const IMG = {
-        pole: 'https://d16-a.sdn.cz/d_16/c_img_qG_A/kcKfrMAkFMsuhDq9H8jcQR/1109.jpeg',
-        pit: 'https://media.formula1.com/image/upload/t_16by9Centre/f_auto/q_auto/v1719487306/fom-website/manual/Misc/DHLAwards2024/GettyImages-2158303675.jpg',
-        sc: 'https://www.actualidadmotor.com/wp-content/uploads/2023/04/safety-cars.jpg',
-        hijau: 'https://f1mavericks.com/wp-content/uploads/2025/03/Green-Flag-F1.jpg',
-        kuning: 'https://assets.khelnow.com/news/uploads/2023/03/Formula-1-Yellow-flag.jpg',
-        merah: 'https://static0.givemesportimages.com/wordpress/wp-content/uploads/2023/06/collage-maker-26-jun-2023-02-04-pm-7713.jpg',
+        pole: 'assets/images/ext/1109.jpeg',
+        pit: 'assets/images/ext/GettyImages-2158303675.jpg',
+        sc: 'assets/images/ext/safety-cars.jpg',
+        hijau: 'assets/images/ext/Green-Flag-F1.jpg',
+        kuning: 'assets/images/ext/Formula-1-Yellow-flag.jpg',
+        merah: 'assets/images/ext/collage-maker-26-jun-2023-02-04-pm-7713.jpg',
         kotak: 'https://img.redbull.com/assets/images/c_crop,w_3000,h_1500,x_0,y_0,f_auto,q_auto/c_scale,w_1200/redbullcom/2022/11/10/b9d4xyfxfwwm3mdzqxnd/chequered-flag-f1'
     };
 

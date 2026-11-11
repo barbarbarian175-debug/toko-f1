@@ -16,13 +16,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($u && password_verify($pw, $u['password'])) {
       session_regenerate_id(true);
       $_SESSION['uid'] = $u['id']; $_SESSION['nama'] = $u['nama']; $_SESSION['role'] = $u['role'];
-      $go = $u['role'] === 'admin' ? 'admin/index.php' : 'index.html';
+      $go = $u['role'] === 'admin' ? 'admin/index.php' : '../../index.html';
     } else $err = 'Email atau password salah';
   }
 }
 ?>
 <!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Login</title><link rel="stylesheet" href="css/loader.css"><style>
+<title>Login</title><link rel="stylesheet" href="../../css/loader.css"><style>
 *{box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
 body{margin:0;min-height:100vh;display:grid;place-items:center;background:#cfcfcf;padding:20px}
 .wrap{display:grid;grid-template-columns:1fr 1fr;width:min(960px,100%);min-height:620px;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 20px 50px #5b6bb355}

@@ -12,3 +12,11 @@ function database(): PDO {
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ]);
 }
+
+// Kirim JSON lalu berhenti (dipakai semua endpoint di backend/api/).
+function jsonOut($data, $code = 200) {
+    http_response_code($code);
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode($data, JSON_UNESCAPED_UNICODE);
+    exit;
+}

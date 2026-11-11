@@ -12,42 +12,42 @@
     /* ---------- DATA ---------- */
     const PARTS = [
         {
-            id: 1, number: '01', name: 'Monocoque', img: '01-monocoque.jpg', url: 'https://www.raceteq.com/-/jssmedia/raceteq/articles/2024/08/evolution-of-chassis/aston-martin-monocoque-2.png?cx=0.51&cy=0.42&cw=1760&ch=1023',
+            id: 1, number: '01', name: 'Monocoque', img: '01-monocoque.jpg', url: 'assets/images/komponen/01-monocoque.jpg',
             description: 'Monocoque adalah struktur utama berbahan komposit karbon yang membentuk kokpit dan sel keselamatan pembalap. Struktur ini dirancang sangat kaku agar bentuknya tetap terjaga saat menerima beban besar, sekaligus menyerap energi benturan melalui bagian-bagian yang dapat hancur secara terkontrol.',
             material: 'Komposit serat karbon', weight: 'Sangat ringan', purpose: 'Melindungi pembalap dan menjadi rangka utama mobil'
         },
         {
-            id: 2, number: '02', name: 'Power Unit', img: '02-power-unit.jpg', url: 'https://www.racefans.net/wp-content/uploads/2024/06/racefansdotnet-24-06-12-10-28-54-1-Honda-RA619H-power-unit-2019-4.jpg',
+            id: 2, number: '02', name: 'Power Unit', img: '02-power-unit.jpg', url: 'assets/images/komponen/02-power-unit.jpg',
             description: 'Power unit modern menggabungkan mesin pembakaran V6 turbo 1,6 liter dengan sistem pemulihan energi listrik. Komponen-komponennya bekerja bersama untuk menghasilkan tenaga, mengatur pemakaian energi, dan menjaga performa sepanjang satu putaran maupun satu balapan.',
             material: 'Paduan logam, turbo, dan komponen elektrik', weight: 'Unit kompleks dengan batas bobot regulasi', purpose: 'Menghasilkan dan mengelola tenaga mobil'
         },
         {
-            id: 3, number: '03', name: 'Sayap depan & belakang', img: '03-sayap.jpg', url: 'https://www.the-race.com/content/assets/images/2025/02/image1--5--1.jpeg',
+            id: 3, number: '03', name: 'Sayap depan & belakang', img: '03-sayap.jpg', url: 'assets/images/komponen/03-sayap.jpg',
             description: 'Kedua sayap membentuk aliran udara di sekitar mobil. Sayap depan membantu mengarahkan udara ke lantai dan roda, sedangkan sayap belakang menghasilkan beban aerodinamis untuk membantu ban tetap menempel di lintasan. Sudut dan bentuknya disetel sesuai karakter sirkuit.',
             material: 'Komposit serat karbon', weight: 'Ringan dan dapat disetel', purpose: 'Mengatur aliran udara dan menghasilkan downforce'
         },
         {
-            id: 4, number: '04', name: 'Lantai & diffuser', img: '04-lantai-diffuser.jpg', url: 'https://golf.com/wp-content/uploads/2022/09/FI-Difuser-small.jpg',
+            id: 4, number: '04', name: 'Lantai & diffuser', img: '04-lantai-diffuser.jpg', url: 'assets/images/ext/FI-Difuser-small.jpg',
             description: 'Lantai mobil membentuk terowongan aliran udara di bawah sasis. Perbedaan tekanan antara bagian bawah dan atas mobil membantu menghasilkan downforce. Di bagian belakang, diffuser memperlambat dan melebarkan aliran udara agar aliran dari bawah mobil dapat keluar dengan lebih stabil.',
             material: 'Komposit karbon dengan permukaan pelindung', weight: 'Lebar dan tipis, mengikuti batas regulasi', purpose: 'Menghasilkan downforce dari bagian bawah mobil'
         },
         {
-            id: 5, number: '05', name: 'Halo', img: '05-halo.jpg', url: 'https://i.ytimg.com/vi/3-3gIAkYEX8/maxresdefault.jpg',
+            id: 5, number: '05', name: 'Halo', img: '05-halo.jpg', url: 'assets/images/ext/maxresdefault.jpg',
             description: 'Halo adalah struktur keselamatan berbentuk lengkung yang mengelilingi bagian atas kokpit. Terbuat dari titanium, perangkat ini dirancang untuk menahan beban besar dan membantu mengalihkan benda dari area kepala pembalap. Bentuknya terbuka agar pandangan dan akses keluar kokpit tetap terjaga.',
             material: 'Paduan titanium', weight: 'Sekitar 7 kg', purpose: 'Memberi perlindungan tambahan di sekitar kepala'
         },
         {
-            id: 6, number: '06', name: 'Rem karbon', img: '06-rem-karbon.jpg', url: 'https://rricoid-assets.obs.ap-southeast-4.myhuaweicloud.com/berita/Makassar/o/1751034604420-REM_CARBON_crash.net/cf5zvurl4om4kt9.jpeg',
+            id: 6, number: '06', name: 'Rem karbon', img: '06-rem-karbon.jpg', url: 'assets/images/ext/cf5zvurl4om4kt9.jpeg',
             description: 'Sistem rem menggunakan cakram dan kampas berbahan karbon yang bekerja pada suhu sangat tinggi. Ketika pembalap mengerem, energi gerak berubah menjadi panas. Pendinginan melalui saluran udara penting agar rem tetap bekerja konsisten saat deselerasi keras berulang kali.',
             material: 'Karbon-karbon', weight: 'Ringan dengan respons tinggi', purpose: 'Memperlambat mobil secara konsisten dari kecepatan tinggi'
         },
         {
-            id: 7, number: '07', name: 'Setir', img: '07-setir.jpg', url: 'https://i.pinimg.com/736x/e4/85/19/e4851983d8a1be559310552ad0019597.jpg',
+            id: 7, number: '07', name: 'Setir', img: '07-setir.jpg', url: 'assets/images/pin/e4851983d8a1be559310552ad0019597.jpg',
             description: 'Setir F1 merupakan antarmuka kendali yang dapat dilepas dari kolom kemudi. Di bagian depannya terdapat layar dan tombol untuk memilih pengaturan mobil, mengatur rem, mengelola energi, serta berkomunikasi dengan tim. Susunannya dibuat khusus agar pembalap dapat mengoperasikannya sambil tetap fokus di lintasan.',
             material: 'Komposit karbon dan komponen elektronik', weight: 'Ringan dan dibuat sesuai kebutuhan pembalap', purpose: 'Mengemudikan mobil dan mengatur sistem kendaraan'
         },
         {
-            id: 8, number: '08', name: 'Girboks', img: '08-girboks.jpg', url: 'https://driver61.com/wp-content/uploads/2024/06/DSC00244-scaled.jpg',
+            id: 8, number: '08', name: 'Girboks', img: '08-girboks.jpg', url: 'assets/images/ext/DSC00244-scaled.jpg',
             description: 'Girboks sekuensial memiliki delapan rasio maju dan satu gigi mundur. Perpindahan gigi dilakukan melalui paddle di belakang setir dengan bantuan sistem elektronik dan hidraulis. Rasio dipilih untuk memanfaatkan rentang tenaga mesin pada sirkuit yang berbeda.',
             material: 'Paduan logam berkekuatan tinggi', weight: 'Ringkas dan mengikuti batas regulasi', purpose: 'Menyalurkan tenaga ke roda belakang melalui rasio yang tepat'
         }
@@ -103,8 +103,8 @@
                     ${paras.map(t => `<p class="pd-description">${t}</p>`).join('')}
                 </section>
                 <nav class="pd-nav" aria-label="Navigasi komponen">
-                    <button class="pd-nav-arrow is-prev" type="button" onclick="openPartDetail(${previous.id})" aria-label="Komponen sebelumnya"><img src="https://i.pinimg.com/1200x/1a/91/ee/1a91ee0890f33c7c50c33d1a55462783.jpg" alt="" aria-hidden="true"></button>
-                    <button class="pd-nav-arrow is-next" type="button" onclick="openPartDetail(${next.id})" aria-label="Komponen berikutnya"><img src="https://i.pinimg.com/1200x/1a/91/ee/1a91ee0890f33c7c50c33d1a55462783.jpg" alt="" aria-hidden="true"></button>
+                    <button class="pd-nav-arrow is-prev" type="button" onclick="openPartDetail(${previous.id})" aria-label="Komponen sebelumnya"><img src="assets/images/pin/1a91ee0890f33c7c50c33d1a55462783.jpg" alt="" aria-hidden="true"></button>
+                    <button class="pd-nav-arrow is-next" type="button" onclick="openPartDetail(${next.id})" aria-label="Komponen berikutnya"><img src="assets/images/pin/1a91ee0890f33c7c50c33d1a55462783.jpg" alt="" aria-hidden="true"></button>
                 </nav>
             </article>`;
         return true;

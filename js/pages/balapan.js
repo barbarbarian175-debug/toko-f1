@@ -110,7 +110,7 @@
             const s = Math.floor(diff / 1000);
             const d = Math.floor(s / 86400), h = Math.floor(s % 86400 / 3600);
             const m = Math.floor(s % 3600 / 60), sc = s % 60;
-            timeEl.innerHTML = (d ? d + '<small>HR</small>' : '') +
+            timeEl.innerHTML = (d ? d + '<small>H</small>' : '') +
                 pad(h) + '<small>J</small>' + pad(m) + '<small>M</small>' + pad(sc) + '<small>D</small>';
         }
 

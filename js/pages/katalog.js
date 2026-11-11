@@ -31,7 +31,7 @@
 
     /* ---------- gambar besar di atas (taruh file ini di folder yang sama) ---------- */
     const HERO = {
-        gambar: 'https://i.pinimg.com/1200x/e0/27/a9/e027a96eece094102e7f34d7a7cc4b4b.jpg',   // foto banner (link atau nama file di assets/images/katalog/)
+        gambar: 'assets/images/pin/e027a96eece094102e7f34d7a7cc4b4b.jpg',   // foto banner (link atau nama file di assets/images/katalog/)
         warna:  '#c99a82',                     // warna latar kalau foto belum ada
         judul:  'Koleksi Terbaru',
         link:   'Lihat semua'
@@ -46,15 +46,15 @@
        kode     : (opsional) warna hex untuk gambar cadangan kalau foto belum ada
        link     : (opsional) alamat WA/Shopee/Tokopedia, kartu jadi bisa diklik     */
     const PRODUK = [
-        { nama: 'Kaos Pria 01', warna: '', harga: 89000, gambar: 'https://i.pinimg.com/736x/60/35/b0/6035b0cc7efb71ec87eeb54a0afb6653.jpg',  kategori: 'pria' },
-        { nama: 'Kaos Pria 02', warna: '', harga: 89000, gambar: 'https://i.pinimg.com/736x/e7/b6/87/e7b687054be2fdf955cd78ea72917f06.jpg',  kategori: 'pria' },
-        { nama: 'Kaos Pria 03', warna: '', harga: 89000, gambar: 'https://i.pinimg.com/1200x/70/e2/4c/70e24c956761b0c19a77ecaa7829c577.jpg', kategori: 'pria' },
-        { nama: 'Kaos Pria 04', warna: '', harga: 89000, gambar: 'https://i.pinimg.com/1200x/a5/24/17/a52417f06665eb0b00245c63982b3559.jpg', kategori: 'pria' },
-        { nama: 'Kaos Pria 05', warna: '', harga: 89000, gambar: 'https://i.pinimg.com/1200x/4f/ec/9d/4fec9d24e67ddec838bd45f628d8d59e.jpg', kategori: 'pria' },
-        { nama: 'Kaos Pria 06', warna: '', harga: 89000, gambar: 'https://i.pinimg.com/1200x/ec/63/8b/ec638be416296d6a6d427875ce2f94fc.jpg', kategori: 'pria' },
-        { nama: 'Kaos Pria 07', warna: '', harga: 89000, gambar: 'https://i.pinimg.com/1200x/65/69/a1/6569a1bf2fd25635b6826f33c0a7bc47.jpg', kategori: 'pria' },
-        { nama: 'Polo Wanita 01', warna: '', harga: 249000, gambar: 'https://i.pinimg.com/1200x/d9/ce/f3/d9cef35302e6f8fd10a1ae4d92ce1db7.jpg', kategori: 'wanita', kode: '#a98466' },
-        { nama: 'Polo Wanita 02', warna: '', harga: 249000, gambar: 'https://i.pinimg.com/736x/4c/3b/ca/4c3bca0aa46347e5d16ef3cead776694.jpg',  kategori: 'wanita', kode: '#9aab94' }
+        { nama: 'Kaos Pria 01', warna: '', harga: 89000, gambar: 'assets/images/pin/6035b0cc7efb71ec87eeb54a0afb6653.jpg',  kategori: 'pria' },
+        { nama: 'Kaos Pria 02', warna: '', harga: 89000, gambar: 'assets/images/pin/e7b687054be2fdf955cd78ea72917f06.jpg',  kategori: 'pria' },
+        { nama: 'Kaos Pria 03', warna: '', harga: 89000, gambar: 'assets/images/pin/70e24c956761b0c19a77ecaa7829c577.jpg', kategori: 'pria' },
+        { nama: 'Kaos Pria 04', warna: '', harga: 89000, gambar: 'assets/images/pin/a52417f06665eb0b00245c63982b3559.jpg', kategori: 'pria' },
+        { nama: 'Kaos Pria 05', warna: '', harga: 89000, gambar: 'assets/images/pin/4fec9d24e67ddec838bd45f628d8d59e.jpg', kategori: 'pria' },
+        { nama: 'Kaos Pria 06', warna: '', harga: 89000, gambar: 'assets/images/pin/ec638be416296d6a6d427875ce2f94fc.jpg', kategori: 'pria' },
+        { nama: 'Kaos Pria 07', warna: '', harga: 89000, gambar: 'assets/images/pin/6569a1bf2fd25635b6826f33c0a7bc47.jpg', kategori: 'pria' },
+        { nama: 'Polo Wanita 01', warna: '', harga: 249000, gambar: 'assets/images/pin/d9cef35302e6f8fd10a1ae4d92ce1db7.jpg', kategori: 'wanita', kode: '#a98466' },
+        { nama: 'Polo Wanita 02', warna: '', harga: 249000, gambar: 'assets/images/pin/4c3bca0aa46347e5d16ef3cead776694.jpg',  kategori: 'wanita', kode: '#9aab94' }
     ];
 
 

@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {   // detail pesanan pelanggan
 function nav($k,$t,$h){ echo '<a href="?hal='.$k.'" class="'.($h==$k?'on':'').'">'.$t.'</a>'; }
 ?>
 <!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Admin</title><link rel="stylesheet" href="../css/admin.css"></head><body>
+<title>Admin</title><link rel="stylesheet" href="../../css/admin.css"></head><body>
 <aside><h3>Admin Toko</h3>
   <?php nav('dashboard','Dashboard',$hal); nav('pesanan','Pesanan',$hal); nav('stok','Stok Baju',$hal); ?>
   <a href="../logout.php" class="out">Keluar</a></aside>
