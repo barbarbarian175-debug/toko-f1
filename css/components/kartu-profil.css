@@ -19,14 +19,3 @@
 .kp-pop .card__btn-solid:hover{background:var(--bg-color);color:var(--main-color)}
 @media(max-width:700px){.kp-pop{right:50%;transform:translateX(50%)}}
 .cn-wrap .cn-right .cn-akun{display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;position:static!important;transform:none!important;width:auto!important;max-width:none!important;flex:0 0 auto}
-
-/* Panel login F1 (versi statis, tanpa server) */
-.lg-overlay{position:fixed;inset:0;z-index:99998;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.55);padding:16px;box-sizing:border-box}
-.lg-card{position:relative;width:min(100%,340px);background:#14151a;color:#f4f5f7;border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:24px 22px;box-shadow:0 24px 60px rgba(0,0,0,.6);font-family:system-ui,sans-serif;box-sizing:border-box}
-.lg-card h3{margin:0 0 4px;font-size:22px}
-.lg-sub{margin:0 0 16px;font-size:13px;color:#9aa0ab}
-.lg-card label{display:block;margin-bottom:12px;font-size:13px;color:#c8ccd4}
-.lg-card input{display:block;width:100%;margin-top:6px;padding:11px 12px;border:1px solid rgba(255,255,255,.18);border-radius:10px;background:#0d0e12;color:#fff;font-size:15px;box-sizing:border-box}
-.lg-card input:focus{outline:2px solid #e10600;border-color:#e10600}
-.lg-submit{width:100%;height:44px;border:0;border-radius:999px;background:#e10600;color:#fff;font-weight:700;font-size:15px;cursor:pointer}
-.lg-close{position:absolute;top:10px;right:12px;border:0;background:none;color:#9aa0ab;font-size:24px;line-height:1;cursor:pointer}
