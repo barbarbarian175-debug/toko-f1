@@ -16,11 +16,12 @@
     const cta = wrap.querySelector('.cn-cta');
     const searchSlot = wrap.querySelector('.cn-search-slot');
 
-    /* ---------- pengelompokan menu ke 3 kartu (ubah sesuka hati) ---------- */
+    /* ---------- pengelompokan menu ke 3 kartu (ubah sesuka hati) ----------
+       16 menu dibagi rata 5 / 5 / 6 supaya tidak menumpuk di kartu kanan. */
     const GROUPS = [
-        { label: 'Belajar',        items: ['Beranda', 'Sejarah', 'Game', 'Kuis'] },
-        { label: 'Balapan',        items: ['Pembalap', 'Tim', 'Sirkuit'] },
-        { label: 'Hasil & Jadwal', items: ['Klasemen', 'Hasil', 'Schedule', 'Katalog'] }
+        { label: 'Belajar',        items: ['Beranda', 'Sejarah', 'Game', 'Kuis', 'Profil'] },
+        { label: 'Balapan',        items: ['Pembalap', 'Tim', 'Sirkuit', 'Live', 'Schedule'] },
+        { label: 'Hasil & Jadwal', items: ['Klasemen', 'Hasil', 'Favorit', 'Bandingkan', 'Prediksi', 'Katalog'] }
     ];
     /* halaman aktif -> menu yang ditandai */
     const PAGE_TO_LABEL = {
@@ -102,7 +103,7 @@
         const extra = [];
         found.forEach(item => {
             const gi = GROUPS.findIndex(g => g.items.some(n => n.toLowerCase() === item.label.toLowerCase()));
-            if (item.label === 'Profil' || gi < 0) extra.push(item);   // Profil & menu baru -> kartu terakhir
+            if (gi < 0) extra.push(item);   // menu baru yang belum masuk grup -> kartu terakhir
             else buckets[gi].push(item);
         });
         buckets[buckets.length - 1].push(...extra);
