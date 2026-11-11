@@ -377,13 +377,14 @@ body.theme-home .hero-bg {
     object-fit: cover;
     object-position: center 85%;   /* naikkan angka = bagian bawah video lebih kelihatan (donat tidak kepotong) */
 }
-/* Tombol suara video hero (pojok kanan atas hero). */
+/* Tombol suara video hero (pojok kanan atas hero). KHUSUS HP: di laptop/tablet
+   tombol disembunyikan (suara tetap bisa menyala lewat klik pertama). */
 .hero-sound {
     position: absolute;
     top: 14px; right: 14px;
     z-index: 5;
     width: 42px; height: 42px;
-    display: flex; align-items: center; justify-content: center;
+    display: none; align-items: center; justify-content: center;
     border: 1px solid rgba(255, 255, 255, .28);
     border-radius: 50%;
     background: rgba(10, 10, 14, .55);
@@ -391,6 +392,9 @@ body.theme-home .hero-bg {
     cursor: pointer;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+}
+@media (max-width: 600px) {
+    .hero-sound { display: flex; }
 }
 .hero-sound svg { width: 20px; height: 20px; }
 .hero-sound .hs-ic-on { display: none; }

@@ -1059,6 +1059,7 @@
                     <div class="cn-right">
                         <div class="cn-search-slot"></div>
                         <button type="button" class="cn-cta">Mulai belajar</button>
+                        <button type="button" class="cn-cta cn-akun" onclick="location.href='archive/shop-admin/login.php'">Login</button>
                     </div>
                 </div>
                 <div class="cn-content" aria-hidden="true"></div>
@@ -1137,11 +1138,13 @@
                 <div class="hero-start-lights" aria-hidden="true">
                     <span class="hero-start-light"></span><span class="hero-start-light"></span><span class="hero-start-light"></span><span class="hero-start-light"></span><span class="hero-start-light"></span>
                 </div>
-                <!-- Tombol suara video hero: browser memblokir suara sebelum interaksi,
-                     jadi suara dinyalakan manual dari sini (tetap menyala sampai dimatikan). -->
-                <button type="button" class="hero-sound" id="hero-sound" aria-label="Nyalakan suara video" aria-pressed="false">
-                    <svg class="hs-ic hs-ic-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z" fill="currentColor" stroke="none"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-                    <svg class="hs-ic hs-ic-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z" fill="currentColor" stroke="none"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9.4 9.4 0 0 1 0 13"/></svg>
+                <!-- Tombol suara video hero (KHUSUS HP): browser memblokir suara sebelum interaksi,
+                     jadi suara dinyalakan manual dari sini (tetap menyala sampai dimatikan).
+                     Ukuran & posisi ditulis inline supaya tombol tetap kecil walaupun file CSS
+                     di HP masih versi lama (cache). -->
+                <button type="button" class="hero-sound" id="hero-sound" aria-label="Nyalakan suara video" aria-pressed="false" style="position:absolute;top:14px;right:14px;z-index:5;width:42px;height:42px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.28);border-radius:50%;background:rgba(10,10,14,.55);color:#fff;cursor:pointer">
+                    <svg class="hs-ic hs-ic-off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z" fill="currentColor" stroke="none"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                    <svg class="hs-ic hs-ic-on" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><path d="M11 5 6 9H2v6h4l5 4V5z" fill="currentColor" stroke="none"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9.4 9.4 0 0 1 0 13"/></svg>
                 </button>
                 <div class="hero-body">
                 </div>
@@ -1617,6 +1620,15 @@
             let inView = true;      // apakah judul video sedang terlihat di layar
             let manualSound = null; // null = ikut aturan otomatis, true/false = pilihan tombol suara
             const soundBtn = document.getElementById('hero-sound');
+            const soundIcOn = soundBtn ? soundBtn.querySelector('.hs-ic-on') : null;
+            const soundIcOff = soundBtn ? soundBtn.querySelector('.hs-ic-off') : null;
+            // Tombol suara khusus HP: di laptop/tablet disembunyikan.
+            // Diatur lewat JS (bukan cuma CSS) supaya tetap benar walaupun file CSS di HP masih versi lama (cache).
+            function syncSoundBtnVisibility() {
+                if (soundBtn) soundBtn.style.display = window.matchMedia('(max-width: 600px)').matches ? 'flex' : 'none';
+            }
+            syncSoundBtnVisibility();
+            window.addEventListener('resize', syncSoundBtnVisibility);
 
             video.volume = VOLUME;
 
@@ -1643,6 +1655,10 @@
                     soundBtn.classList.toggle('is-on', !!on);
                     soundBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
                     soundBtn.setAttribute('aria-label', on ? 'Matikan suara video' : 'Nyalakan suara video');
+                    // ditulis inline juga supaya ikon & warna tetap benar walaupun CSS masih versi lama (cache)
+                    soundBtn.style.background = on ? '#e10600' : 'rgba(10,10,14,.55)';
+                    if (soundIcOn) soundIcOn.style.display = on ? 'block' : 'none';
+                    if (soundIcOff) soundIcOff.style.display = on ? 'none' : 'block';
                 }
             }
             // Deteksi video mengulang dari awal (loop). Kalau saat itu suara sedang menyala,

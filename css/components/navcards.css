@@ -284,6 +284,11 @@ body .navbar { display: none !important; }
     .cn-cta { padding: 0 14px; font-size: .9rem; height: 36px; }
     .cn-right .nt-bell { width: 36px; height: 36px; }
 }
+/* Layar sangat kecil (<=360px): sembunyikan "Mulai belajar" (tombol yang sama
+   ada juga di hero) supaya Login + lonceng tetap muat. */
+@media (max-width: 360px) {
+    .cn-right .cn-cta:not(.cn-akun) { display: none; }
+}
 
 @media (prefers-reduced-motion: reduce) {
     .cn-nav, .cn-card, .cn-line, .cn-link, .cn-link::before, .cn-link::after, .cn-link-text, .cn-face, .cn-cta { transition: none; }
