@@ -82,7 +82,7 @@
         if (text != null) e.textContent = text;
         return e;
     }
-    const src = f => /^https?:\/\//.test(f) ? f : FOLDER + f;   // boleh link penuh atau nama file
+    const src = f => /^https?:\/\//.test(f) || f.startsWith('assets/') || f.startsWith('/') ? f : FOLDER + f;   // link penuh / path lokal lengkap dipakai apa adanya; nama file saja dicari di FOLDER
     const rupiah = n => 'Rp ' + Number(n).toLocaleString('id-ID');
     const ICON_CART = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2.2l2.1 10.2a1.6 1.6 0 0 0 1.6 1.3h8a1.6 1.6 0 0 0 1.6-1.2L20 8H6.2"/><circle cx="9.5" cy="19.5" r="1.3"/><circle cx="17" cy="19.5" r="1.3"/></svg>';
     const ICON_HIST = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg>';

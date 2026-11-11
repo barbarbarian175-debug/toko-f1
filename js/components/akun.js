@@ -1,3 +1,16 @@
+// Di GitHub Pages file .php tidak bisa jalan (browser malah men-download-nya),
+// jadi tombol Login dialihkan ke login.html (tampilan yang sama persis).
+// Di localhost/XAMPP tetap ke login.php yang asli.
+(function () {
+  function arahkanLogin() {
+    if (!/\.github\.io$/.test(location.hostname)) return;
+    const btn = document.querySelector('.cn-right .cn-akun');
+    if (btn) btn.setAttribute('onclick', "location.href='login.html'");
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', arahkanLogin);
+  else arahkanLogin();
+})();
+
 // Kalau sudah login: tombol "Login" di navbar berubah jadi nama, klik -> kartu profil
 // (File asli, hanya path yang disesuaikan karena file PHP toko pindah ke archive/shop-admin/)
 (function () {
