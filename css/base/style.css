@@ -377,6 +377,26 @@ body.theme-home .hero-bg {
     object-fit: cover;
     object-position: center 85%;   /* naikkan angka = bagian bawah video lebih kelihatan (donat tidak kepotong) */
 }
+/* Tombol suara video hero (pojok kanan atas hero). */
+.hero-sound {
+    position: absolute;
+    top: 14px; right: 14px;
+    z-index: 5;
+    width: 42px; height: 42px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(255, 255, 255, .28);
+    border-radius: 50%;
+    background: rgba(10, 10, 14, .55);
+    color: #fff;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+.hero-sound svg { width: 20px; height: 20px; }
+.hero-sound .hs-ic-on { display: none; }
+.hero-sound.is-on { background: #e10600; border-color: #e10600; }
+.hero-sound.is-on .hs-ic-on { display: block; }
+.hero-sound.is-on .hs-ic-off { display: none; }
 body.theme-home .hero::before {
     content: "";
     position: absolute;

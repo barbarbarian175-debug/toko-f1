@@ -273,6 +273,18 @@ body .navbar { display: none !important; }
     .cn-cta { padding: 0 16px; font-size: .95rem; }
 }
 
+/* HP sempit (<=600px): logo tidak lagi di tengah absolut — di layar kecil
+   posisi tengahnya menabrak tombol "Mulai belajar" + lonceng. Logo ikut
+   alur flex (burger | logo ... lonceng + tombol) dan tombol diperkecil
+   supaya semuanya muat dalam satu baris. */
+@media (max-width: 600px) {
+    .cn-logo-slot { position: static; transform: none; flex: 0 0 auto; }
+    .cn-top { justify-content: flex-start; gap: 8px; }
+    .cn-right { margin-left: auto; gap: 8px; }
+    .cn-cta { padding: 0 14px; font-size: .9rem; height: 36px; }
+    .cn-right .nt-bell { width: 36px; height: 36px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .cn-nav, .cn-card, .cn-line, .cn-link, .cn-link::before, .cn-link::after, .cn-link-text, .cn-face, .cn-cta { transition: none; }
     .cn-link:hover .cn-link-text, .cn-link:focus-visible .cn-link-text,

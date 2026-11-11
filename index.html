@@ -1113,7 +1113,7 @@
         <!-- HALAMAN 1: BERANDA (statistik) -->
         <div id="home-page" class="page active">
             <div class="hero">
-                <video class="hero-bg hero-bg-video" src="assets/images/bg/formula-1.mp4" autoplay muted loop playsinline preload="auto"></video>
+                <video class="hero-bg hero-bg-video" src="assets/images/bg/formula-1.mp4" poster="assets/images/bg/hero-f1.jpg" autoplay muted loop playsinline preload="auto"></video>
                 <!-- Foto latar pengganti: muncul (crossfade) setelah video selesai -->
                 <img class="hero-bg hero-bg-photo" src="assets/images/bg/hero-f1.jpg" alt="" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='assets/images/bg/hero-f1.jpg';">
                 <div class="next-race notranslate" translate="no">
@@ -1137,6 +1137,12 @@
                 <div class="hero-start-lights" aria-hidden="true">
                     <span class="hero-start-light"></span><span class="hero-start-light"></span><span class="hero-start-light"></span><span class="hero-start-light"></span><span class="hero-start-light"></span>
                 </div>
+                <!-- Tombol suara video hero: browser memblokir suara sebelum interaksi,
+                     jadi suara dinyalakan manual dari sini (tetap menyala sampai dimatikan). -->
+                <button type="button" class="hero-sound" id="hero-sound" aria-label="Nyalakan suara video" aria-pressed="false">
+                    <svg class="hs-ic hs-ic-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z" fill="currentColor" stroke="none"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                    <svg class="hs-ic hs-ic-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z" fill="currentColor" stroke="none"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9.4 9.4 0 0 1 0 13"/></svg>
+                </button>
                 <div class="hero-body">
                 </div>
                 <div class="hero-foot">
@@ -1604,15 +1610,19 @@
             const homePage = document.getElementById('home-page');
             if (!video || !homePage) return;
 
-            const VOLUME = 0.12;   // 0 = senyap, 1 = penuh. Ubah angka ini kalau mau lebih keras/pelan.
+            const VOLUME = 0.5;    // 0 = senyap, 1 = penuh. Ubah angka ini kalau mau lebih keras/pelan.
             let unlocked = false;
             let finished = false;   // true setelah satu putaran penuh bersuara selesai
             let lastTime = 0;
             let inView = true;      // apakah judul video sedang terlihat di layar
+            let manualSound = null; // null = ikut aturan otomatis, true/false = pilihan tombol suara
+            const soundBtn = document.getElementById('hero-sound');
 
             video.volume = VOLUME;
 
             function shouldPlaySound() {
+                if (manualSound === true) return !document.hidden && homePage.classList.contains('active');
+                if (manualSound === false) return false;
                 return unlocked && !finished && !document.hidden && homePage.classList.contains('active');
             }
             // Video hanya diputar saat benar-benar terlihat (Beranda aktif, tab terbuka, judul masuk layar).
@@ -1628,11 +1638,17 @@
                 } else if (!video.paused) {
                     video.pause();
                 }
+                if (soundBtn) {
+                    const on = manualSound === true || (manualSound === null && unlocked && !finished && !video.muted);
+                    soundBtn.classList.toggle('is-on', !!on);
+                    soundBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+                    soundBtn.setAttribute('aria-label', on ? 'Matikan suara video' : 'Nyalakan suara video');
+                }
             }
             // Deteksi video mengulang dari awal (loop). Kalau saat itu suara sedang menyala,
             // berarti satu putaran bersuara sudah selesai -> senyap seterusnya.
             video.addEventListener('timeupdate', () => {
-                if (video.currentTime < lastTime - 0.5 && !video.muted) {
+                if (video.currentTime < lastTime - 0.5 && !video.muted && manualSound !== true) {
                     finished = true;
                     video.muted = true;
                 }
@@ -1641,7 +1657,9 @@
             function unlock() {
                 if (!unlocked) {
                     unlocked = true;
-                    video.currentTime = 0;   // mulai dari awal supaya suaranya terdengar satu putaran penuh
+                    // mulai dari awal supaya suaranya terdengar satu putaran penuh;
+                    // jangan seek kalau video baru mulai (bisa bikin buffering ulang)
+                    if (video.currentTime > 0.5) video.currentTime = 0;
                     lastTime = 0;
                 }
                 sync();
@@ -1652,6 +1670,15 @@
             }
             ['pointerdown', 'touchstart', 'keydown', 'click'].forEach(ev =>
                 window.addEventListener(ev, unlock, { capture: true, passive: true }));
+
+            // Tombol suara di hero: nyalakan/matikan manual. Kalau dinyalakan dari
+            // tombol, suara tetap menyala sampai tombol ditekan lagi (tidak ikut
+            // aturan "satu putaran lalu senyap").
+            if (soundBtn) soundBtn.addEventListener('click', () => {
+                manualSound = manualSound !== true;
+                if (manualSound) { unlocked = true; finished = false; lastTime = video.currentTime; }
+                sync();
+            });
 
             // Coba langsung bersuara tanpa menunggu klik (hanya berhasil kalau browser mengizinkan,
             // mis. situs diizinkan memutar suara). Kalau ditolak, tetap senyap sampai klik pertama.
@@ -1738,6 +1765,25 @@
                 if (isFinite(video.duration) && video.currentTime >= video.duration - CUT_END - 0.35) swap();
             });
             video.addEventListener('ended', swap);
+
+            // Kalau video macet buffering (koneksi lambat), tampilkan foto dulu supaya
+            // hero tidak kelihatan beku/hitam; begitu video jalan lagi, foto menghilang.
+            // Kalau video gagal dimuat sama sekali, foto tampil permanen.
+            let stallTimer = null;
+            video.addEventListener('waiting', function () {
+                clearTimeout(stallTimer);
+                stallTimer = setTimeout(function () { if (!done) photo.classList.add('is-on'); }, 1200);
+            });
+            video.addEventListener('playing', function () {
+                clearTimeout(stallTimer);
+                if (!done) photo.classList.remove('is-on');
+            });
+            video.addEventListener('error', function () { photo.classList.add('is-on'); });
+            // Pengaman kalau error terjadi sebelum listener di atas terpasang,
+            // atau video tidak kunjung mulai (jaringan sangat lambat).
+            setTimeout(function () {
+                if (!done && (video.error || video.networkState === 3 || (video.paused && video.currentTime === 0 && video.readyState < 2))) photo.classList.add('is-on');
+            }, 4000);
         })();
     </script>
 </body>
