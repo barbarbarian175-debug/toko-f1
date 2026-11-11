@@ -1,0 +1,21 @@
+/* Lonceng notifikasi + badge. Transisi badge: geser diagonal + pop-in pegas (.t-badge) */
+.nt-bell{position:relative;flex:0 0 auto;width:40px;height:40px;padding:0;border:0;border-radius:50%;background:#fff;color:#111;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.nt-bell svg{width:18px;height:18px}
+.t-badge{
+  --t-duration:.5s; --t-ease:cubic-bezier(.34,1.56,.64,1);
+  --t-distance:10px; --t-blur:4px; --t-scale:.4;
+  position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 5px;border-radius:10px;
+  background:#f5163b;color:#fff;font:700 11px/20px system-ui,sans-serif;text-align:center;pointer-events:none;
+  opacity:0;filter:blur(var(--t-blur));
+  transform:translate(calc(var(--t-distance)*-1),var(--t-distance)) scale(var(--t-scale));
+  transition:transform var(--t-duration) var(--t-ease),opacity .25s ease,filter .25s ease}
+.t-badge.is-in{opacity:1;filter:none;transform:none}
+@media(prefers-reduced-motion:reduce){.t-badge{transition:opacity .2s;transform:none;filter:none}}
+
+.nt-pop{position:fixed;z-index:99999;width:320px;max-width:calc(100vw - 16px);display:none;background:#fff;color:#111;border-radius:16px;box-shadow:0 18px 50px #0006;overflow:hidden;font-family:system-ui,sans-serif}
+.nt-pop.open{display:block}
+.nt-pop h4{margin:0;padding:14px 16px;font-size:15px;border-bottom:1px solid #eee}
+.nt-item{display:block;padding:12px 16px;border-bottom:1px solid #f2f2f2;cursor:pointer}
+.nt-item:last-child{border:0}.nt-item:hover{background:#f6f6f8}
+.nt-item b{display:block;font-size:14px}.nt-item small{color:#999;font-size:11px}
+.nt-item p{margin:4px 0 0;font-size:13px;color:#666}

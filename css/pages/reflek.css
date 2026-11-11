@@ -1,0 +1,89 @@
+/* =========================================================
+   HALAMAN REFLEK START - uji reaksi lampu merah ke hijau
+   Ubah warna lewat variabel --rf-* di bawah.
+   ========================================================= */
+body.theme-reflek canvas { display: none; }
+body.theme-reflek {
+    background:
+        repeating-linear-gradient(115deg, rgba(255, 255, 255, .016) 0 1px, transparent 1px 74px),
+        #090a0d !important;
+    background-attachment: fixed !important;
+}
+body.theme-reflek .navbar { background: rgba(12, 13, 17, .9); }
+
+#reflek-page {
+    --rf-red: #e10600;
+    --rf-green: #25b85a;
+    --rf-gold: #e8b64c;
+    padding: 8px 0 44px;
+    color: #f4f2ed;
+}
+.rf {
+    max-width: 760px; margin: 0 auto; padding: 30px 26px 28px; text-align: center;
+    background: #0d0e12; border: 1px solid #23252d;
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+.rf[data-state="go"] { border-color: rgba(37, 184, 90, .5); box-shadow: 0 0 60px rgba(37, 184, 90, .18); }
+.rf[data-state="fault"] { border-color: #23252d; box-shadow: none; }
+
+.rf-kicker { margin: 0; color: var(--rf-red); font: 800 .72rem var(--f-head); letter-spacing: .22em; text-transform: uppercase; }
+.rf h1 { margin: 6px 0 4px; font: 800 clamp(2.2rem, 6vw, 3.4rem)/1 var(--f-head); font-style: italic; text-transform: uppercase; color: #fff; }
+.rf-sub { max-width: 460px; margin: 0 auto; color: #8b93a3; font: 400 .88rem/1.6 var(--f-body); }
+
+/* gantry lampu start */
+.rf-gantry {
+    display: flex; justify-content: center; gap: clamp(8px, 2.4vw, 16px);
+    margin: 28px auto 6px; padding: 14px clamp(10px, 3vw, 22px);
+    width: fit-content; max-width: 100%; background: #050506; border: 1px solid #23252d; border-radius: 14px;
+}
+.rf-pod { display: grid; gap: 9px; padding: 10px clamp(6px, 1.6vw, 12px); background: #14151a; border-radius: 8px; }
+.rf-pod i {
+    display: block; width: clamp(30px, 8.4vw, 54px); aspect-ratio: 1; border-radius: 50%;
+    background: #2a0c0e; border: 1px solid rgba(255, 90, 90, .3);
+    transition: background-color .08s ease, box-shadow .08s ease;
+}
+.rf-pod.on i { background: var(--rf-red); box-shadow: 0 0 18px 3px rgba(225, 6, 0, .75); border-color: #ff6a64; }
+.rf[data-state="fault"] .rf-pod i { background: #6b0a07; border-color: #ff6a64; }
+
+/* hasil */
+.rf-status { min-height: 1.5em; margin: 22px 0 2px; font: 800 clamp(1.3rem, 3.6vw, 1.9rem)/1.2 var(--f-head); letter-spacing: .06em; text-transform: uppercase; }
+.rf[data-state="go"] .rf-status { color: var(--rf-green); }
+.rf[data-state="fault"] .rf-status { color: var(--rf-red); }
+.rf-time { min-height: 1em; margin: 0; font: 800 clamp(3.2rem, 11vw, 5.6rem)/1 var(--f-head); font-style: italic; color: #fff; font-variant-numeric: tabular-nums; }
+.rf-time small { font-size: .32em; font-style: normal; letter-spacing: .12em; color: #8b93a3; margin-left: 6px; }
+.rf-note { min-height: 1.5em; margin: 6px 0 0; color: #b9bdc8; font: 400 .92rem/1.5 var(--f-body); }
+
+.rf-btn {
+    display: block; width: min(420px, 100%); height: 78px; margin: 22px auto 0; padding: 0;
+    border: 2px solid rgba(255, 255, 255, .35); border-radius: 6px; background: transparent; color: #fff;
+    font: 800 1.5rem var(--f-head); letter-spacing: .14em; text-transform: uppercase; cursor: pointer;
+    touch-action: manipulation; user-select: none; -webkit-user-select: none;
+    transition: background-color .12s ease, border-color .12s ease, transform .1s ease;
+}
+.rf-btn:hover { border-color: #fff; }
+.rf-btn:active { transform: scale(.985); }
+.rf-btn:focus-visible { outline: 2px solid var(--rf-gold); outline-offset: 3px; }
+.rf[data-state="wait"] .rf-btn, .rf[data-state="arm"] .rf-btn { border-color: rgba(225, 6, 0, .7); color: #ffb3af; }
+.rf[data-state="go"] .rf-btn { background: var(--rf-green); border-color: var(--rf-green); color: #04140a; }
+.rf-hint { margin: 10px 0 0; color: #5e6573; font: 400 .75rem var(--f-body); }
+
+/* statistik + riwayat */
+.rf-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 30px; }
+.rf-stats div { padding: 12px 10px; border: 1px solid #23252d; background: #11131a; text-align: left; }
+.rf-stats b { display: block; font: 700 1.3rem/1.2 var(--f-head); color: #fff; font-variant-numeric: tabular-nums; }
+.rf-stats span { display: block; margin-top: 3px; font: 600 .64rem var(--f-head); letter-spacing: .12em; text-transform: uppercase; color: #6f7686; }
+.rf-best b { color: var(--rf-gold); }
+
+.rf-hist { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
+.rf-hist li { padding: 5px 12px; border: 1px solid #23252d; border-radius: 999px; background: #11131a; color: #c4c8d2; font: 600 .78rem var(--f-head); letter-spacing: .06em; font-variant-numeric: tabular-nums; }
+.rf-hist li.bad { color: var(--rf-red); border-color: rgba(225, 6, 0, .4); }
+.rf-hist li.best { color: var(--rf-gold); border-color: rgba(232, 182, 76, .5); }
+.rf-reset { margin-top: 16px; padding: 6px 12px; border: 0; background: none; color: #6f7686; font: 600 .7rem var(--f-head); letter-spacing: .12em; text-transform: uppercase; cursor: pointer; }
+.rf-reset:hover { color: #fff; }
+
+@media (max-width: 520px) {
+    .rf { padding: 22px 14px 22px; }
+    .rf-btn { height: 70px; font-size: 1.25rem; }
+    .rf-stats b { font-size: 1.1rem; }
+}
+@media (prefers-reduced-motion: reduce) { .rf, .rf-pod i, .rf-btn { transition: none; } }

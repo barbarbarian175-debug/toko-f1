@@ -1,0 +1,154 @@
+/* =========================================================
+   PROFIL: FOLDER (halaman awal profil) + HALAMAN DI DALAMNYA
+   Folder = versi HTML/CSS/JS biasa dari komponen "Folder" (React Bits).
+   Ukuran folder: ubah --u di .pf-hub (makin besar = makin besar folder).
+   Warna folder & kertas: ubah di .pff-folder.
+   Dimuat SETELAH profil.css.
+   ========================================================= */
+
+/* ---------- pindah halaman ---------- */
+#profile-page .pf-view { display: grid; gap: 22px; }
+#profile-page .pf-view[hidden] { display: none; }
+#profile-page .pf-shell[data-view="hub"] .pf-footer { display: none; }
+
+#profile-page .pf-topbar { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+#profile-page .pf-topbar-label { color: var(--pf-muted); font: 400 .72rem 'DM Mono', ui-monospace, monospace; letter-spacing: .14em; text-transform: uppercase; }
+
+/* ---------- kartu folder ---------- */
+#profile-page .pf-hub { --u: 2.4px; }   /* 1 satuan folder (lebar folder = 100 satuan) */
+#profile-page .pf-hub-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    padding: 56px 24px 40px;
+    text-align: center;
+    border: 1px solid var(--pf-line);
+    border-radius: 28px;
+    background: var(--pf-card);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, .35);
+}
+#profile-page .pf-hub-kicker { color: var(--pf-gold); font: 500 .72rem 'DM Mono', ui-monospace, monospace; letter-spacing: .18em; text-transform: uppercase; }
+#profile-page .pf-hub-card h1 { margin: 12px 0 0; color: #fff; font: 400 clamp(2.2rem, 5vw, 3.6rem)/1.02 'Instrument Serif', Georgia, serif; letter-spacing: -.015em; overflow-wrap: anywhere; }
+#profile-page .pf-hub-sub { margin: 10px 0 0; color: var(--pf-muted); font: 400 .95rem var(--f-body, sans-serif); }
+#profile-page .pf-folder-stage { display: flex; justify-content: center; width: 100%; padding: calc(var(--u) * 74) 0 calc(var(--u) * 10); }
+#profile-page .pf-hub-hint { margin: 30px 0 22px; color: var(--pf-muted); font: 400 .74rem 'DM Mono', ui-monospace, monospace; letter-spacing: .14em; text-transform: uppercase; }
+
+/* ---------- folder ---------- */
+#profile-page .pff-folder {
+    --folder-color: #e8b64c;
+    --folder-back-color: #d6a746;
+    --paper-1: #e6e0d2;
+    --paper-2: #f0ebdf;
+    --paper-3: #faf7f0;
+    transition: all .2s ease-in;
+}
+#profile-page .pff-folder:hover { transform: translateY(-8px); }
+#profile-page .pff-folder:hover .pff-paper { transform: translate(-50%, 0%); }
+#profile-page .pff-folder:hover .pff-front { transform: skew(15deg) scaleY(.6); }
+#profile-page .pff-folder:hover .pff-right { transform: skew(-15deg) scaleY(.6); }
+
+#profile-page .pff-folder.open { transform: translateY(-8px); }
+#profile-page .pff-folder.open .pff-paper:nth-child(1) { transform: translate(-120%, -70%) rotateZ(-15deg); }
+#profile-page .pff-folder.open .pff-paper:nth-child(1):hover { transform: translate(-120%, -70%) rotateZ(-15deg) scale(1.1); }
+#profile-page .pff-folder.open .pff-paper:nth-child(2) { transform: translate(10%, -70%) rotateZ(15deg); height: 80%; }
+#profile-page .pff-folder.open .pff-paper:nth-child(2):hover { transform: translate(10%, -70%) rotateZ(15deg) scale(1.1); }
+#profile-page .pff-folder.open .pff-paper:nth-child(3) { transform: translate(-50%, -100%) rotateZ(5deg); height: 80%; }
+#profile-page .pff-folder.open .pff-paper:nth-child(3):hover { transform: translate(-50%, -100%) rotateZ(5deg) scale(1.1); }
+#profile-page .pff-folder.open .pff-front { transform: skew(15deg) scaleY(.6); }
+#profile-page .pff-folder.open .pff-right { transform: skew(-15deg) scaleY(.6); }
+
+#profile-page .pff-back {
+    position: relative;
+    width: calc(var(--u) * 100);
+    height: calc(var(--u) * 80);
+    background: var(--folder-back-color);
+    border-radius: 0 calc(var(--u) * 10) calc(var(--u) * 10) calc(var(--u) * 10);
+}
+#profile-page .pff-back::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    bottom: 98%;
+    left: 0;
+    width: calc(var(--u) * 30);
+    height: calc(var(--u) * 10);
+    background: var(--folder-back-color);
+    border-radius: calc(var(--u) * 5) calc(var(--u) * 5) 0 0;
+}
+
+/* kertas (tombol, supaya bisa diklik & difokus dengan keyboard) */
+#profile-page .pff-paper {
+    position: absolute;
+    z-index: 2;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, 10%);
+    width: 70%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: calc(var(--u) * 8);
+    border: 0;
+    border-radius: calc(var(--u) * 10);
+    background: var(--paper-1);
+    color: #17171a;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    pointer-events: none;           /* baru bisa diklik setelah folder dibuka */
+    transition: all .3s ease-in-out;
+}
+#profile-page .pff-folder.open .pff-paper { pointer-events: auto; }
+#profile-page .pff-paper:nth-child(2) { background: var(--paper-2); width: 80%; height: 70%; }
+#profile-page .pff-paper:nth-child(3) { background: var(--paper-3); width: 90%; height: 60%; }
+#profile-page .pff-paper:focus-visible { outline: 2px solid var(--pf-gold); outline-offset: 3px; }
+
+/* Kertas kiri & kanan sebagian tertutup kertas tengah: teks dirapatkan ke sisi yang terlihat */
+#profile-page .pff-paper:nth-child(1) .pff-paper-title,
+#profile-page .pff-paper:nth-child(2) .pff-paper-title { max-width: 68%; }
+#profile-page .pff-paper:nth-child(2) { align-items: flex-end; text-align: right; }
+/* saat disorot, kertas naik ke paling atas supaya terbaca penuh */
+#profile-page .pff-folder.open .pff-paper:hover,
+#profile-page .pff-folder.open .pff-paper:focus-visible { z-index: 4; }
+
+#profile-page .pff-paper-title { color: #17171a; font-family: 'Instrument Serif', Georgia, serif; font-size: max(14px, calc(var(--u) * 9)); font-weight: 400; line-height: 1.02; letter-spacing: -.01em; }
+
+#profile-page .pff-front {
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    background: var(--folder-color);
+    border-radius: calc(var(--u) * 5) calc(var(--u) * 10) calc(var(--u) * 10) calc(var(--u) * 10);
+    transform-origin: bottom;
+    transition: all .3s ease-in-out;
+}
+
+/* tombol buka/tutup: menutupi bagian depan folder saja, supaya kertas tetap bisa diklik */
+#profile-page .pff-toggle {
+    position: absolute;
+    z-index: 5;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 60%;
+    padding: 0;
+    border: 0;
+    border-radius: 0 0 calc(var(--u) * 10) calc(var(--u) * 10);
+    background: transparent;
+    cursor: pointer;
+}
+#profile-page .pff-toggle:focus-visible { outline: 2px solid var(--pf-gold); outline-offset: 4px; }
+
+@media (max-width: 800px) {
+    #profile-page .pf-hub { --u: 1.5px; }
+    #profile-page .pf-hub-card { padding: 40px 16px 32px; border-radius: 22px; }
+    #profile-page .pff-paper-title { font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    #profile-page .pff-folder, #profile-page .pff-paper, #profile-page .pff-front { transition: none; }
+}

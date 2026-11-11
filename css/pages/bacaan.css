@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap');
+
+/* =========================================================
+   HALAMAN BACA ISTILAH (tenang, terang, enak dibaca)
+   Ubah warna di variabel --bc-* di bawah.
+   ========================================================= */
+body.theme-istilah canvas { display: none; }
+body.theme-istilah { background: #f1f4f3 !important; background-attachment: fixed !important; }
+
+#istilah-page {
+    --bc-ink: #1c2a2e; --bc-body: #2b393d; --bc-soft: #56666b; --bc-line: #d6dedc; --bc-accent: #2c6e6a; --bc-tint: #e1ecea; --bc-paper: #fff;
+    padding: 6px 0 56px; color: var(--bc-ink);
+}
+.bc { max-width: 720px; margin: 0 auto; background: var(--bc-paper); border: 1px solid var(--bc-line); border-radius: 12px; overflow: hidden; }
+.bc-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 22px 26px 0; }
+.bc-mode { padding: 6px 14px; border: 1px solid var(--bc-line); border-radius: 999px; background: transparent; color: var(--bc-ink); font: 600 .82rem var(--f-body, sans-serif); cursor: pointer; }
+.bc-mode:hover { border-color: var(--bc-accent); color: var(--bc-accent); }
+.bc-back { display: inline-block; margin: 0; padding: 0; border: 0; background: none; color: var(--bc-accent); font: 600 .95rem var(--f-body, sans-serif); cursor: pointer; }
+.bc-back:hover { text-decoration: underline; }
+.bc-hero { aspect-ratio: 16 / 9; margin: 16px 26px 0; border-radius: 8px; overflow: hidden; background: var(--bc-tint); display: grid; place-items: center; }
+.bc-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bc-hero b { font: 600 5.5rem Literata, Georgia, serif; color: var(--bc-accent); opacity: .5; }
+.bc-text { padding: 8px 26px 30px; }
+.bc h1 { margin: 22px 0 8px; font: 600 clamp(1.8rem, 4.6vw, 2.5rem)/1.2 Literata, Georgia, serif; color: var(--bc-ink); text-transform: none; font-style: normal; }
+.bc-lead { margin: 0 0 24px; color: var(--bc-soft); font: 400 1.08rem/1.6 var(--f-body, sans-serif); }
+.bc h2 { margin: 30px 0 8px; font: 600 1.3rem/1.3 Literata, Georgia, serif; color: var(--bc-ink); text-transform: none; font-style: normal; }
+.bc p.bc-p { margin: 0 0 1.1em; font: 400 1.08rem/1.85 Literata, Georgia, serif; color: var(--bc-body); }
+.bc-sum { margin: 28px 0 0; padding: 16px 20px; background: var(--bc-tint); border-left: 4px solid var(--bc-accent); border-radius: 0 8px 8px 0; font: 400 1rem/1.6 var(--f-body, sans-serif); }
+.bc-sum b { display: block; margin-bottom: 3px; }
+.bc-nav { display: flex; justify-content: space-between; gap: 12px; margin: 34px 0 0; padding-top: 18px; border-top: 1px solid var(--bc-line); }
+.bc-nav button { max-width: 48%; padding: 0; border: 0; background: none; color: var(--bc-accent); font: 600 .95rem var(--f-body, sans-serif); text-align: left; cursor: pointer; }
+.bc-nav button:last-child { text-align: right; }
+.bc-nav button:hover { text-decoration: underline; }
+.bc-nav small { display: block; color: var(--bc-soft); font-weight: 400; }
+.bc-src { margin: 20px 0 0; color: var(--bc-soft); font-size: .78rem; }
+
+/* penanda di kartu Beranda supaya jelas bisa diklik */
+.nb-ticket[data-bc], .nb-flag[data-bc] { cursor: pointer; }
+.nb-ticket[data-bc]:focus-visible, .nb-flag[data-bc]:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.bc-more { display: inline-block; margin-top: 12px; color: #fff; font: 700 .8rem var(--f-head, sans-serif); letter-spacing: .06em; border-bottom: 1px solid rgba(255, 255, 255, .5); }
+
+@media (max-width: 540px) {
+    .bc-bar, .bc-hero { margin-left: 16px; margin-right: 16px; }
+    .bc-text { padding: 8px 16px 26px; }
+    .bc p.bc-p { font-size: 1.03rem; }
+}
+
+/* navbar tetap gelap supaya menu terbaca di halaman terang */
+body.theme-istilah .navbar { background: rgba(14, 18, 20, .92); }
+
+/* MODE GELAP (tombol di kanan atas kartu) */
+body.theme-istilah.bc-dark { background: #12181a !important; }
+#istilah-page.bc-dark {
+    --bc-ink: #f2f6f5; --bc-body: #dbe3e2; --bc-soft: #a6b7ba; --bc-line: #31403f; --bc-accent: #86ccc4; --bc-tint: #243538; --bc-paper: #1b2427;
+}

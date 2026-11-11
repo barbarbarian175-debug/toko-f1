@@ -1,0 +1,84 @@
+/* =========================================================
+   DEPTH CAROUSEL
+   ========================================================= */
+.depth-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: var(--dc-perspective, 1400px);
+    perspective-origin: 50% 50%;
+    touch-action: pan-y;
+    outline: none;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: grab;
+}
+.depth-carousel:active { cursor: grabbing; }
+.depth-carousel:focus-visible { outline: 2px solid rgba(255, 255, 255, 0.5); outline-offset: 4px; border-radius: 12px; }
+
+.depth-carousel__stage { position: absolute; inset: 0; transform-style: preserve-3d; }
+
+.depth-carousel__card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center center;
+    overflow: hidden;
+    background: #0b0d12;
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.65), 0 8px 20px -10px rgba(0, 0, 0, 0.5);
+    will-change: transform, opacity, filter;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+}
+.depth-carousel__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+    -webkit-user-drag: none;
+}
+.depth-carousel__label {
+    position: absolute; inset: 0; display: grid; place-items: center; padding: 12px; text-align: center;
+    color: #fff; font: 800 1.15rem var(--f-head, sans-serif); font-style: italic; text-transform: uppercase;
+}
+.depth-carousel__tint { position: absolute; inset: 0; opacity: 0; pointer-events: none; mix-blend-mode: multiply; }
+
+@media (prefers-reduced-motion: reduce) {
+    .depth-carousel__card { will-change: auto; }
+}
+
+/* =========================================================
+   PEMASANGAN DI SHOWCASE "TIM / SIRKUIT"
+   (menimpa aturan lama untuk gambar tunggal di .fs-stage)
+   ========================================================= */
+.fs-depth { position: absolute; inset: 0; }
+
+.fs-wrap[data-mode] .fs-stage .depth-carousel .depth-carousel__img {
+    position: static; left: auto; top: auto; transform: none;
+    width: 100%; height: 100%; max-width: none; max-height: none;
+    border-radius: 0; box-shadow: none; filter: none; mix-blend-mode: normal; animation: none;
+}
+
+/* TIM: kartu logo bulat */
+.fs-wrap[data-mode="teams"] .depth-carousel__card {
+    background: #0b0d12;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, .16), 0 14px 30px rgba(0, 0, 0, .5);   /* garis tipis netral + bayangan gelap */
+}
+
+/* SIRKUIT: kartu gelap berisi peta lintasan utuh (tidak dipotong) */
+.fs-wrap[data-mode="circuits"] .fs-stage.is-track {
+    -webkit-mask-image: radial-gradient(circle, #000 68%, transparent 97%);
+    mask-image: radial-gradient(circle, #000 68%, transparent 97%);
+}
+.fs-wrap[data-mode="circuits"] .depth-carousel__card {
+    background: #15151b; border: 1px solid rgba(255, 255, 255, .12);
+}
+.fs-wrap[data-mode="circuits"] .fs-stage .depth-carousel .depth-carousel__img {
+    object-fit: contain; padding: 12%; box-sizing: border-box;
+    filter: drop-shadow(0 0 14px rgba(255, 255, 255, .12));
+}

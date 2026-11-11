@@ -1,0 +1,280 @@
+/* =====================================================================
+   NAVBAR BERANDA gaya CardNav (React Bits), versi HTML + CSS + JS biasa
+   Tampil di semua halaman. Navbar lama disembunyikan (tetap ada di HTML
+   karena file JS lain masih membaca menu & kolom cari di dalamnya).
+   ===================================================================== */
+body .navbar { display: none !important; }
+
+.cn-wrap {
+    --cn-base: 60px;              /* tinggi navbar saat tertutup */
+    display: block;
+    position: sticky;
+    top: 10px;
+    z-index: 20;
+    height: var(--cn-base);       /* tinggi tetap supaya isi halaman tidak ikut turun saat menu dibuka */
+    width: min(100%, 860px);
+    margin: 0 auto 30px;
+}
+
+.cn-nav {
+    --cn-ease: cubic-bezier(.22, 1, .36, 1);
+    --cn-font: 'Barlow Condensed', 'Inter', sans-serif;
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: var(--cn-base);
+    overflow: hidden;
+    color: #f4f5f7;
+    background: rgba(13, 14, 18, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 22px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 14px 40px rgba(0, 0, 0, 0.38);
+    backdrop-filter: blur(18px) saturate(1.2);
+    -webkit-backdrop-filter: blur(18px) saturate(1.2);
+    transition: height .5s var(--cn-ease);
+    will-change: height;
+}
+
+/* ----- baris atas: garis tiga | logo | tombol ----- */
+.cn-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px 0 14px;
+    z-index: 2;
+}
+
+.cn-burger {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 42px; height: 42px;
+    padding: 0;
+    background: none;
+    border: 0;
+    border-radius: 12px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color .2s ease;
+}
+.cn-burger:hover { background: rgba(255, 255, 255, 0.08); }
+.cn-burger:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.cn-line {
+    display: block;
+    width: 24px; height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    transform-origin: 50% 50%;
+    transition: transform .3s var(--cn-ease);
+}
+.cn-burger.open .cn-line:first-child { transform: translateY(4px) rotate(45deg); }
+.cn-burger.open .cn-line:last-child  { transform: translateY(-4px) rotate(-45deg); }
+
+.cn-logo-slot {
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+}
+
+/* tombol "Mulai belajar": gaya yang sama dengan tombol putih di hero.
+   Hanya tampil di Beranda (class .is-home dipasang oleh navcards.js) */
+.cn-cta {
+    display: none;
+    height: 40px;
+    padding: 0 24px;
+    border: 0;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #0d0e12;
+    font-family: var(--cn-font);
+    font-size: 1.02rem;
+    font-weight: 700;
+    letter-spacing: .01em;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color .2s ease, transform .2s var(--cn-ease);
+}
+.cn-wrap.is-home .cn-cta { display: block; }
+.cn-cta.cn-akun { display: block; }
+.cn-cta:hover { background: #e6e8ec; transform: translateY(-1px); }
+.cn-cta:active { transform: none; }
+.cn-cta:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+/* kolom cari (dipindah dari navbar lama; tampil di Pembalap, Tim, Sirkuit) */
+.cn-right { display: flex; align-items: center; gap: 10px; }
+.cn-search-slot { display: flex; align-items: center; }
+.cn-search-slot input {
+    width: 190px;
+    height: 38px;
+    padding: 0 16px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.07);
+    color: #f1f2f4;
+    font: 500 .9rem 'Inter', sans-serif;
+    outline: none;
+    transition: border-color .2s ease, background-color .2s ease;
+}
+.cn-search-slot input::placeholder { color: rgba(255, 255, 255, 0.5); }
+.cn-search-slot input:focus { border-color: rgba(255, 255, 255, 0.45); background: rgba(255, 255, 255, 0.11); }
+
+/* ----- isi menu: 3 kartu ----- */
+.cn-content {
+    position: absolute;
+    left: 0; right: 0;
+    top: var(--cn-base); bottom: 0;
+    padding: 2px 10px 10px;
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+.cn-nav.open .cn-content { visibility: visible; pointer-events: auto; }
+
+.cn-card {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    border-radius: 15px;
+    background: linear-gradient(165deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    user-select: none;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .4s ease, transform .55s var(--cn-ease);
+}
+.cn-card.in { opacity: 1; transform: none; }
+
+.cn-card-links { display: flex; flex-direction: column; gap: 2px; }
+
+/* ----- link: saat disorot muncul "bantal" lembut, teks loncat kecil,
+         dan wajah mungil muncul, matanya mengikuti kursor, sesekali berkedip ----- */
+.cn-link {
+    --cn-pop: cubic-bezier(.34, 1.7, .5, 1);       /* gerak membal */
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 11px 12px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: .98rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: color .2s ease;
+}
+.cn-link::before {
+    content: "";
+    position: absolute;
+    inset: 1px 0;
+    z-index: -1;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.11);
+    opacity: 0;
+    transform: scale(.86);
+    transition: opacity .2s ease, transform .5s var(--cn-pop);
+}
+.cn-link-text { display: inline-block; transition: transform .5s var(--cn-pop); }
+
+/* kilau kecil di dekat wajah */
+.cn-link::after {
+    content: "\2726";
+    position: absolute;
+    right: 40px; top: 3px;
+    font-size: 11px;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.9);
+    opacity: 0;
+    transform: scale(0) rotate(-60deg);
+    transition: transform .5s var(--cn-pop) .12s, opacity .15s ease .12s;
+}
+
+/* wajah mungil */
+.cn-face {
+    display: block;
+    flex: none;
+    width: 24px; height: 24px;
+    opacity: 0;
+    transform: scale(0) rotate(-45deg);
+    transition: transform .55s var(--cn-pop), opacity .15s ease;
+}
+.cn-face svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.cn-face .eyes {
+    transform: translate(calc(var(--ex, 0) * 1.5px), calc(var(--ey, 0) * 1.2px));
+    transition: transform .12s ease-out;
+}
+.cn-face .eye { transform-box: fill-box; transform-origin: center; }
+.cn-face .mouth-o { opacity: 0; }
+
+.cn-link.active { color: #fff; font-weight: 700; }
+
+.cn-link:hover, .cn-link:focus-visible { color: #fff; }
+.cn-link:hover::before, .cn-link:focus-visible::before { opacity: 1; transform: scale(1); }
+.cn-link:hover::after, .cn-link:focus-visible::after { opacity: 1; transform: scale(1) rotate(0); }
+.cn-link:hover .cn-link-text, .cn-link:focus-visible .cn-link-text {
+    transform: translateX(4px);
+    animation: cn-hop .6s ease .05s;
+}
+.cn-link:hover .cn-face, .cn-link:focus-visible .cn-face { opacity: 1; transform: scale(1) rotate(0); }
+.cn-link:hover .cn-face svg, .cn-link:focus-visible .cn-face svg { animation: cn-bob 1.1s ease-in-out .5s infinite; }
+.cn-link:hover .cn-face .eye, .cn-link:focus-visible .cn-face .eye { animation: cn-blink 3s ease-in-out .8s infinite; }
+
+/* ditekan: gepeng sebentar dan wajahnya kaget "o" */
+.cn-link:active::before { transform: scale(.95); }
+.cn-link:active .cn-link-text { transform: translateX(4px) scale(.93); animation: none; }
+.cn-link:active .cn-face .mouth-smile { opacity: 0; }
+.cn-link:active .cn-face .mouth-o { opacity: 1; }
+
+.cn-link:focus-visible { outline: 2px solid rgba(255, 255, 255, 0.7); outline-offset: -2px; border-radius: 12px; }
+
+@keyframes cn-hop {
+    0%   { transform: translate(4px, 0) scale(1, 1); }
+    25%  { transform: translate(4px, -4px) scale(.98, 1.05); }
+    50%  { transform: translate(4px, 0) scale(1.05, .92); }
+    72%  { transform: translate(4px, -1.5px) scale(1, 1.02); }
+    100% { transform: translate(4px, 0) scale(1, 1); }
+}
+@keyframes cn-bob {
+    0%, 100% { transform: translateY(0) rotate(-4deg); }
+    50%      { transform: translateY(-2px) rotate(4deg); }
+}
+@keyframes cn-blink {
+    0%, 92%, 100% { transform: scaleY(1); }
+    96%           { transform: scaleY(.1); }
+}
+
+@media (max-width: 700px) {
+    .cn-wrap { width: 100%; }
+    .cn-wrap.has-search { --cn-base: 112px; }
+    .cn-search-slot { position: absolute; left: 10px; right: 10px; top: 62px; }
+    .cn-search-slot input { width: 100%; }
+    .cn-nav { border-radius: 18px; }
+    .cn-content { flex-direction: column; gap: 8px; justify-content: flex-start; }
+    .cn-card { flex: none; padding: 6px 8px; }
+    /* di HP link dibuat 2 kolom supaya menu tidak terlalu panjang */
+    .cn-card-links { display: grid; grid-template-columns: 1fr 1fr; column-gap: 8px; }
+}
+@media (max-width: 420px) {
+    .cn-top { padding: 0 8px 0 8px; }
+    .cn-cta { padding: 0 16px; font-size: .95rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cn-nav, .cn-card, .cn-line, .cn-link, .cn-link::before, .cn-link::after, .cn-link-text, .cn-face, .cn-cta { transition: none; }
+    .cn-link:hover .cn-link-text, .cn-link:focus-visible .cn-link-text,
+    .cn-link:hover .cn-face svg, .cn-link:hover .cn-face .eye { animation: none; }
+}

@@ -1,0 +1,112 @@
+/* =========================================================
+   FAQ - kisi pertanyaan + panel kontak gelap yang menempel
+   (terinspirasi blok "FAQ 9"). Taruh di atas .site-credit.
+   Ubah aksen lewat variabel --fq-*.
+   ========================================================= */
+.faq9 {
+    --fq-gold: #e8b64c;
+    --fq-red: #e10600;
+    --fq-line: rgba(255, 255, 255, .12);
+    --fq-muted: #9a9fad;
+    --fq-paper: #ddd6c9;      /* warna krem (sama dengan bagian Helm di atasnya) */
+    --fq-ink: #1b1813;        /* teks gelap di atas krem */
+    --fq-ink-soft: #4d463b;   /* teks deskripsi */
+    --fq-ink-line: rgba(27, 24, 19, .22);
+    position: relative;
+    z-index: 2;
+    margin: 64px 0 0;
+    color: #f2efea;
+}
+.faq9-head { max-width: 640px; margin: 0 0 28px; }
+.faq9-kicker { display: block; margin-bottom: 12px; color: var(--fq-gold); font: 600 .7rem var(--f-body, sans-serif); letter-spacing: .18em; text-transform: uppercase; }
+.faq9-title { margin: 0; font: 800 clamp(2rem, 4.4vw, 3.1rem)/1.02 var(--f-head, sans-serif); font-style: italic; text-transform: uppercase; }
+.faq9-sub { margin: 12px 0 0; color: var(--fq-muted); font: 400 .95rem/1.65 var(--f-body, sans-serif); }
+
+.faq9-layout { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(280px, .8fr); gap: 22px; align-items: start; }
+
+/* ----- kisi pertanyaan ----- */
+.faq9-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-items: start; }
+.faq9-item {
+    border: 1px solid var(--fq-ink-line);
+    border-radius: 18px;
+    background: var(--fq-paper);
+    transition: border-color .25s ease, background .25s ease;
+}
+.faq9-item:hover { border-color: rgba(27, 24, 19, .45); }
+.faq9-item[open] { border-color: rgba(27, 24, 19, .6); }
+.faq9-item summary {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 18px 20px;
+    list-style: none;
+    cursor: pointer;
+    font: 600 .95rem/1.4 var(--f-body, sans-serif);
+    color: var(--fq-ink);
+}
+.faq9-item summary::-webkit-details-marker { display: none; }
+.faq9-item summary:focus-visible { outline: 2px solid var(--fq-ink); outline-offset: -2px; border-radius: 18px; }
+.faq9-plus {
+    position: relative;
+    flex: 0 0 auto;
+    width: 26px;
+    height: 26px;
+    margin-top: -2px;
+    border: 1px solid rgba(27, 24, 19, .4);
+    border-radius: 50%;
+    transition: transform .3s ease, background .3s ease, border-color .3s ease;
+}
+.faq9-plus::before, .faq9-plus::after { content: ""; position: absolute; top: 50%; left: 50%; width: 10px; height: 1.5px; background: currentColor; transform: translate(-50%, -50%); }
+.faq9-plus::after { transform: translate(-50%, -50%) rotate(90deg); transition: transform .3s ease; }
+.faq9-item[open] .faq9-plus { background: var(--fq-ink); border-color: var(--fq-ink); color: var(--fq-paper); transform: rotate(180deg); }
+.faq9-item[open] .faq9-plus::after { transform: translate(-50%, -50%) rotate(0deg); }
+.faq9-body { padding: 0 20px 20px; color: var(--fq-ink-soft); font: 400 .9rem/1.7 var(--f-body, sans-serif); }
+.faq9-body p { margin: 0; }
+.faq9-item[open] .faq9-body { animation: faq9-in .3s ease both; }
+@keyframes faq9-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+/* ----- panel kontak gelap (menempel saat scroll) ----- */
+.faq9-panel {
+    position: sticky;
+    top: 92px;
+    padding: 28px 26px;
+    overflow: hidden;
+    border: 1px solid var(--fq-ink-line);
+    border-radius: 24px;
+    background: var(--fq-paper);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .25);
+}
+.faq9-panel h3 { position: relative; margin: 0; font: 600 1.45rem/1.2 var(--f-body, sans-serif); letter-spacing: -.01em; color: var(--fq-ink); }
+.faq9-panel p { position: relative; margin: 10px 0 0; color: var(--fq-ink-soft); font: 400 .9rem/1.65 var(--f-body, sans-serif); }
+.faq9-cta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 11px 20px;
+    border-radius: 999px;
+    background: var(--fq-ink);
+    color: #f2efea;
+    font: 600 .85rem var(--f-body, sans-serif);
+    text-decoration: none;
+    transition: transform .2s ease, background .2s ease;
+}
+.faq9-cta:hover { transform: translateY(-2px); background: #000; }
+.faq9-stats { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--fq-ink-line); }
+.faq9-stats b { display: block; color: var(--fq-ink); font: 600 1.9rem/1 var(--f-body, sans-serif); letter-spacing: -.02em; }
+.faq9-stats span { display: block; margin-top: 6px; color: var(--fq-ink-soft); font: 400 .78rem/1.4 var(--f-body, sans-serif); }
+
+@media (max-width: 900px) {
+    .faq9 { margin-top: 48px; }
+    .faq9-layout { grid-template-columns: 1fr; }
+    .faq9-panel { position: static; order: -1; }
+}
+@media (max-width: 620px) {
+    .faq9-grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .faq9-item, .faq9-plus, .faq9-plus::after, .faq9-cta { transition: none; }
+    .faq9-item[open] .faq9-body { animation: none; }
+}

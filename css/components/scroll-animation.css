@@ -1,0 +1,55 @@
+/* =========================================================
+   SCROLL ANIMATION
+   Elemen muncul halus (fade + geser + sedikit blur) saat di-scroll.
+   Pakai properti terpisah `translate` & `scale` (bukan `transform`)
+   jadi tidak menimpa hover / animasi lain yang sudah ada.
+   Setelah selesai, class dilepas -> elemen kembali normal 100%.
+   ========================================================= */
+
+:root {
+    --sa-ease: cubic-bezier(.22, .8, .3, 1);
+    --sa-dur: .75s;
+}
+
+/* Keadaan awal (sebelum terlihat) */
+.sa-pre {
+    opacity: 0;
+    translate: var(--sa-x, 0) var(--sa-y, 42px);
+    scale: var(--sa-s, 1);
+    filter: blur(var(--sa-b, 6px));
+    will-change: opacity, translate, scale, filter;
+}
+
+/* Arah / gaya */
+.sa-pre[data-sa="up"]    { --sa-x: 0;     --sa-y: 42px; }
+.sa-pre[data-sa="down"]  { --sa-x: 0;     --sa-y: -42px; }
+.sa-pre[data-sa="left"]  { --sa-x: -56px; --sa-y: 0; }
+.sa-pre[data-sa="right"] { --sa-x: 56px;  --sa-y: 0; }
+.sa-pre[data-sa="pop"]   { --sa-x: 0;     --sa-y: 26px; --sa-s: .92; }
+.sa-pre[data-sa="fade"]  { --sa-x: 0;     --sa-y: 0;    --sa-b: 0px; }
+.sa-pre[data-sa="section"] { --sa-x: 0; --sa-y: 56px; --sa-b: 0px; }  /* blok besar: tanpa blur biar ringan */
+.sa-pre[data-sa="row"]   { --sa-x: 0;     --sa-y: 18px; --sa-b: 0px; }  /* baris tabel */
+
+/* Keadaan akhir + transisi */
+.sa-pre.sa-go {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+    filter: blur(0);
+    transition:
+        opacity var(--sa-dur) var(--sa-ease) var(--sa-delay, 0s),
+        translate var(--sa-dur) var(--sa-ease) var(--sa-delay, 0s),
+        scale var(--sa-dur) var(--sa-ease) var(--sa-delay, 0s),
+        filter var(--sa-dur) var(--sa-ease) var(--sa-delay, 0s);
+}
+
+/* Aksesibilitas: matikan animasi kalau user minta */
+@media (prefers-reduced-motion: reduce) {
+    .sa-pre, .sa-pre.sa-go {
+        opacity: 1 !important;
+        translate: none !important;
+        scale: none !important;
+        filter: none !important;
+        transition: none !important;
+    }
+}

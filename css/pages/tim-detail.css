@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+
+/* =========================================================
+   HALAMAN DETAIL TIM - gaya wireframe: bar atas + tombol X,
+   gambar besar, 4 kotak statistik, lalu 2 bagian teks.
+   Warna tim dilembutkan (dicampur abu gelap) supaya tidak neon:
+     --tm      = warna tim versi kalem (garis, kotak)
+     --ta      = warna tim versi terang kalem (huruf awal, link)
+   ========================================================= */
+body.theme-team-detail canvas { display: none; }
+body.theme-team-detail {
+    background:
+        repeating-linear-gradient(115deg, rgba(255, 255, 255, .016) 0 1px, transparent 1px 74px),
+        #0a0a0c !important;
+    background-attachment: fixed !important;
+}
+body.theme-team-detail .navbar { background: rgba(12, 13, 17, .9); }
+
+/* kartu di halaman Tim bisa diklik */
+.team-card { cursor: pointer; }
+
+#team-detail-page { padding: 8px 0 44px; }
+.td {
+    --tc: #e10600;
+    --tm: color-mix(in srgb, var(--tc) 45%, #3a3b40);
+        --ta: color-mix(in srgb, var(--tc) 40%, #d9d5cd);
+    max-width: 880px;
+    margin: 0 auto;
+    background: #131417;
+    border: 1px solid #2a2b31;
+    border-radius: 6px;
+    color: #e8e6e1;
+}
+
+/* bar atas + tombol X */
+.td-bar {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 10px 16px; border-bottom: 1px solid #2a2b31;
+    font: 700 .72rem var(--f-head); letter-spacing: .18em; text-transform: uppercase; color: #8d8f97;
+}
+.td-bar span b { color: #e8e6e1; font-weight: 700; }
+.td-close {
+    width: 36px; height: 36px; display: grid; place-items: center; padding: 0; border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, .22); background: transparent; color: #e8e6e1;
+    font-size: 1.3rem; line-height: 1; cursor: pointer; transition: border-color .2s, background .2s;
+}
+.td-close:hover { border-color: rgba(255, 255, 255, .6); background: rgba(255, 255, 255, .06); }
+.td-close:focus-visible { outline: 2px solid #e8e6e1; outline-offset: 2px; }
+
+/* gambar besar: latar polos gelap (tanpa panel warna tim) */
+.td-hero {
+    position: relative; margin: 18px 18px 0; overflow: hidden; aspect-ratio: 16 / 8;
+    background: #0e0e10;
+    border: 1px solid #2a2b31;
+    border-radius: 4px;
+}
+.td-hero img:not(.td-logo) {
+    position: absolute; right: -2%; bottom: 6%; z-index: 1; width: 82%; height: auto;
+    mix-blend-mode: screen; pointer-events: none;
+}
+.td-hero figcaption { position: absolute; left: 22px; top: 18px; z-index: 2; }
+/* logo tim di pojok kanan atas */
+.td-hero .td-logo {
+    position: absolute; top: 18px; right: 18px; bottom: auto; z-index: 2; mix-blend-mode: normal; pointer-events: none;
+    width: clamp(56px, 9vw, 88px); aspect-ratio: 1; object-fit: cover;
+    border-radius: 50%; border: 1px solid rgba(255, 255, 255, .18);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .45);
+}
+.td-hero small { display: block; max-width: 46%; font: 400 .78rem/1.4 var(--f-body); color: #9a9ca4; }
+.td-hero h1 {
+    margin: 4px 0 0; font: 800 clamp(2rem, 6vw, 3.6rem)/.95 var(--f-head);
+    font-style: italic; text-transform: uppercase; color: #f2efe9;
+}
+
+/* 4 kotak statistik */
+.td-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 14px 18px 0; }
+.td-stats div { padding: 12px 12px 11px; border: 1px solid #2a2b31; border-radius: 3px; background: #191a1f; }
+.td-stats b { display: block; font: 700 1.05rem/1.2 var(--f-head); color: #f2efe9; overflow-wrap: anywhere; }
+.td-stats span { display: block; margin-top: 4px; font: 600 .66rem var(--f-head); letter-spacing: .12em; text-transform: uppercase; color: #7c7f88; }
+
+/* bagian teks */
+.td-sec { padding: 26px 22px 0; }
+.td-sec:last-child { padding-bottom: 28px; }
+.td-sec h2 {
+    margin: 0 0 14px;
+    font: italic 600 1.7rem/1.2 'Playfair Display', Georgia, serif;
+    letter-spacing: .01em; color: #f2efe9;
+}
+.td-sec p {
+    margin: 0 0 16px; max-width: 720px;
+    font: 400 1.02rem/1.95 'Lora', Georgia, serif;
+    letter-spacing: .005em; color: #c6c4be;
+}
+.td-sec p:last-child { margin-bottom: 0; }
+.td-sec p:first-of-type::first-letter { color: var(--ta); font-family: 'Playfair Display', Georgia, serif; font-size: 1.15em; font-weight: 600; }
+.td-src { margin: 22px 22px 0; padding-top: 12px; border-top: 1px dashed #2a2b31; font: .72rem var(--f-body); color: #74777f; }
+.td-src a { color: var(--ta); text-decoration: none; }
+.td-src a:hover { text-decoration: underline; }
+
+@media (max-width: 640px) {
+    .td-hero { margin: 14px 12px 0; aspect-ratio: 4 / 3; }
+    .td-hero .td-logo { top: 12px; right: 12px; width: 52px; }
+    .td-hero img:not(.td-logo) { width: 120%; right: -10%; bottom: 4%; }
+    .td-hero small { max-width: 70%; }
+    .td-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 12px 12px 0; }
+    .td-sec { padding: 22px 16px 0; }
+    .td-src { margin: 18px 16px 0; }
+}
+@media (prefers-reduced-motion: reduce) { .td-close { transition: none; } }
