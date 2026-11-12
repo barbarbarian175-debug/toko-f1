@@ -987,6 +987,7 @@ function renderHomeCarousels() {
         'audi': 'assets/images/pin/b0f7eb6e9c6d5923a044bf4bfa9bcd68.jpg',
         'aston martin': 'assets/images/pin/b64a5745c7786e8b5c96df096eeebb69.jpg'
     };
+    window.teamLogos = teamLogos;
     const logoFor = (...names) => {
         const text = names.filter(Boolean).join(' ').toLowerCase();
         const key = Object.keys(teamLogos).find(k => text.includes(k));

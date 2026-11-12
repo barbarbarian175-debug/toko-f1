@@ -78,50 +78,73 @@
             padding: 10px 18px; font-size: .85rem; font-weight: 600; opacity: 0; pointer-events: none; transition: opacity .2s ease, transform .2s ease; }
         .fv-toast.on { opacity: 1; transform: translate(-50%, 0); }
         .fv-wrap { max-width: 1100px; margin: 0 auto; padding: 8px 16px 60px; color: #fff; text-align: left; }
-        .fv-search { display: flex; align-items: center; gap: 8px; margin: 12px 0 18px; padding: 11px 16px; border-radius: 999px;
-            border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.06); color: #fff; }
-        .fv-search input { flex: 1; border: 0; outline: 0; background: transparent; color: #fff; font: 500 .95rem var(--f-body, 'Inter', sans-serif); }
-        .fv-search input::placeholder { color: #8d8d98; }
-        .fv-hero { position: relative; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 0; overflow: hidden;
-            border-radius: 22px; border: 1px solid rgba(255,255,255,.14); background: linear-gradient(100deg, #101116 55%, #1c0d10 100%); min-height: 300px; }
-        .fv-hero .fv-hero-txt { padding: 26px 8px 26px 26px; display: flex; flex-direction: column; justify-content: center; }
-        .fv-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #a9a9b3; }
-        .fv-first { margin: 12px 0 0; font-size: 1.05rem; font-weight: 600; color: #d7d7de; letter-spacing: .04em; }
-        .fv-last { margin: 0; font-family: var(--f-head, 'Barlow Condensed', sans-serif); font-weight: 800; font-style: italic; text-transform: uppercase;
-            line-height: .9; font-size: clamp(3rem, 11vw, 5.2rem); color: #fff; }
-        .fv-hero .fv-teamline { margin-top: 12px; color: #d7d7de; font-weight: 600; }
-        .fv-hero .fv-tag { margin-top: 6px; color: #a9a9b3; font-size: .9rem; line-height: 1.5; max-width: 420px; }
-        .fv-hero .fv-stat { margin-top: 14px; display: inline-flex; gap: 8px; align-items: center; }
-        .fv-hero .fv-stat b { background: #e10600; border-radius: 999px; padding: 5px 12px; font-size: .82rem; }
-        .fv-hero .fv-stat span { color: #a9a9b3; font-size: .85rem; }
-        .fv-hero figure { margin: 0; position: relative; min-height: 300px; }
-        .fv-hero figure img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-        .fv-hero figure .fv-num { position: absolute; right: 14px; bottom: 6px; font-family: var(--f-head, 'Barlow Condensed', sans-serif);
-            font-weight: 800; font-style: italic; font-size: clamp(5rem, 18vw, 8.5rem); line-height: .8; color: rgba(255,255,255,.14); }
-        .fv-hero .fv-empty { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; color: #d7d7de; padding: 20px; background: rgba(10,10,14,.45); }
-        .fv-chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0 4px; }
-        .fv-chip { display: inline-flex; align-items: center; gap: 8px; padding: 5px 13px 5px 5px; border-radius: 999px; border: 1px solid rgba(255,255,255,.22);
-            background: rgba(255,255,255,.05); color: #fff; font: 600 .85rem var(--f-body, 'Inter', sans-serif); cursor: pointer; }
-        .fv-chip img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; object-position: center top; background: #333; }
-        .fv-chip.sel { border-color: #e10600; background: rgba(225,6,0,.18); }
-        .fv-dash { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 18px; }
-        .fv-dcard { border: 1px solid rgba(255,255,255,.14); border-radius: 18px; background: #17181d; padding: 16px 18px; min-height: 190px; }
-        .fv-dcard h4 { margin: 0 0 10px; font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #a9a9b3; }
-        .fv-dcard .fv-track { display: block; width: 100%; max-height: 92px; object-fit: contain; filter: invert(1); opacity: .9; margin: 2px 0 8px; }
-        .fv-dcard .fv-racename { font-weight: 800; font-size: 1.05rem; line-height: 1.3; }
-        .fv-dcard .fv-racedate { color: #a9a9b3; font-size: .85rem; margin-top: 4px; line-height: 1.5; }
-        .fv-dcard .fv-link { display: inline-block; margin-top: 12px; color: #ff4d4d; font-weight: 700; font-size: .85rem; cursor: pointer; background: none; border: 0; padding: 0; }
-        .fv-minirow { display: flex; align-items: center; gap: 9px; padding: 8px 0; border-top: 1px solid rgba(255,255,255,.08); font-size: .92rem; }
-        .fv-minirow:first-of-type { border-top: 0; }
-        .fv-minirow .fv-pos { font-weight: 800; width: 20px; color: #a9a9b3; }
-        .fv-minirow .fv-dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+        .fv-stage { position: relative; overflow: hidden; border-radius: 28px; border: 1px solid rgba(255,255,255,.16); padding: 18px 22px 22px;
+            background: radial-gradient(ellipse 55% 60% at 78% 28%, rgba(225,6,0,.5), transparent 70%), radial-gradient(ellipse at 10% 100%, rgba(120,0,0,.25), transparent 60%), linear-gradient(160deg, #0d0d12, #050507); }
+        .fv-top { position: relative; z-index: 6; display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+        .fv-search { display: flex; align-items: center; gap: 10px; width: min(300px, 70%); padding: 10px 16px; border-radius: 999px;
+            border: 1px solid rgba(255,255,255,.28); background: rgba(10,10,14,.55); backdrop-filter: blur(8px); color: #fff; }
+        .fv-search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: #fff; font: 500 .88rem var(--f-body, 'Inter', sans-serif); }
+        .fv-search input::placeholder { color: #9a9aa6; }
+        .fv-avatar { position: relative; width: 44px; height: 44px; border-radius: 50%; border: 2px solid rgba(255,255,255,.35); background: #1a1b21; flex: none; }
+        .fv-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: center top; }
+        .fv-avatar i { position: absolute; top: -4px; right: -4px; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 9px; background: #e10600; color: #fff;
+            font: 700 .65rem/18px var(--f-body, 'Inter', sans-serif); text-align: center; font-style: normal; }
+        .fv-hero { position: relative; min-height: 330px; }
+        .fv-hero-txt { position: relative; z-index: 4; max-width: 52%; padding: 34px 0 30px; display: flex; flex-direction: column; align-items: flex-start; }
+        .fv-eyebrow { font-size: .7rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #cfcfd8; }
+        .fv-name { margin: 14px 0 0; font-family: 'Orbitron', var(--f-head, 'Barlow Condensed', sans-serif); font-weight: 800; text-transform: uppercase;
+            line-height: 1.02; font-size: clamp(1.9rem, 6.2vw, 4rem); letter-spacing: .01em; color: #fff; overflow-wrap: anywhere; }
+        .fv-teamline { margin-top: 18px; font-weight: 700; font-size: 1.02rem; color: #fff; }
+        .fv-teamline { display: flex; align-items: center; gap: 10px; }
+        .fv-tlogo { height: 30px; width: auto; max-width: 70px; object-fit: contain; flex: none; }
+        .fv-card .fv-mlogo { display: inline-block; width: 18px; height: 18px; height: 18px; object-fit: contain; margin-right: 7px; vertical-align: -4px; background: transparent; }
+        .fv-tag { margin: 6px 0 0; color: #a9a9b3; font-size: .95rem; line-height: 1.45; max-width: 400px; }
+        .fv-stat { margin-top: 12px; display: inline-flex; gap: 8px; align-items: center; }
+        .fv-stat b { background: #e10600; border-radius: 999px; padding: 4px 11px; font-size: .8rem; }
+        .fv-stat span { color: #a9a9b3; font-size: .82rem; }
+        .fv-btn { margin-top: 20px; display: inline-flex; align-items: center; gap: 12px; padding: 11px 22px; border: 0; border-radius: 999px; cursor: pointer;
+            background: linear-gradient(90deg, #c8353a 0%, #7a1a1f 100%); color: #fff; font: 600 .9rem var(--f-body, 'Inter', sans-serif); box-shadow: 0 6px 24px rgba(225,6,0,.25); }
+        .fv-btn:hover { filter: brightness(1.15); }
+        .fv-photo { position: absolute; z-index: 2; right: -2%; top: -70px; width: 62%; height: calc(100% + 120px); pointer-events: none;
+            -webkit-mask-image: linear-gradient(to right, transparent 0, #000 32%), linear-gradient(to bottom, #000 72%, transparent 100%); -webkit-mask-composite: source-in;
+            mask-image: linear-gradient(to right, transparent 0, #000 32%), linear-gradient(to bottom, #000 72%, transparent 100%); mask-composite: intersect; }
+        .fv-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+        .fv-num { position: absolute; z-index: 1; right: 4%; top: 22px; font-family: 'Orbitron', var(--f-head, sans-serif); font-weight: 800; font-style: italic;
+            font-size: clamp(7rem, 20vw, 14rem); line-height: 1; color: transparent; -webkit-text-stroke: 3px #ff2a1f; text-shadow: 0 0 28px rgba(255,40,30,.65); opacity: .9; pointer-events: none; }
+        .fv-blank { position: relative; z-index: 4; padding: 40px 0; max-width: 460px; color: #d7d7de; }
+        .fv-chips { position: relative; z-index: 5; display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0 16px; }
+        .fv-chip { display: inline-flex; align-items: center; gap: 8px; padding: 4px 13px 4px 4px; border-radius: 999px; border: 1px solid rgba(255,255,255,.22);
+            background: rgba(10,10,14,.55); color: #fff; font: 600 .82rem var(--f-body, 'Inter', sans-serif); cursor: pointer; backdrop-filter: blur(6px); }
+        .fv-chip img { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; object-position: center top; background: #333; }
+        .fv-chip.sel { border-color: #e10600; background: rgba(225,6,0,.22); }
+        .fv-dash { position: relative; z-index: 5; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+        .fv-dcard { border: 1px solid rgba(255,255,255,.14); border-radius: 22px; background: rgba(22,22,28,.55); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            padding: 20px 22px; min-height: 300px; display: flex; flex-direction: column; }
+        .fv-dcard h4 { margin: 0 0 16px; font-size: 1rem; font-weight: 700; color: #fff; }
+        .fv-racehead { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: .88rem; }
+        .fv-racehead img { width: 26px; height: 18px; object-fit: cover; border-radius: 2px; }
+        .fv-circuit { margin-top: 8px; color: #8d8d98; font-size: .8rem; }
+        .fv-dcard .fv-track { display: block; width: 100%; height: 110px; object-fit: contain; filter: brightness(0) invert(1); opacity: .92; margin: 14px 0 10px; }
+        .fv-dcard .fv-track.tk-l { filter: invert(1); border-radius: 8px; opacity: 1; }
+        .fv-dcard .fv-track.tk-d { filter: none; border-radius: 8px; opacity: 1; }
+        .fv-racedate { color: #a9a9b3; font-size: .85rem; line-height: 1.5; }
+        .fv-bigdate { margin-top: auto; font-weight: 700; font-size: 1rem; color: #fff; }
+        .fv-countdown { color: #ff4d4d; font-size: .95rem; margin-top: 2px; }
+        .fv-link { margin-top: auto; align-self: flex-start; color: #ff4d4d; font-weight: 500; font-size: .95rem; cursor: pointer; background: none; border: 0; padding: 12px 0 0; text-decoration: none; }
+        .fv-link:hover { color: #ff8080; }
+        .fv-minirow { display: flex; align-items: center; gap: 10px; padding: 11px 12px; margin: 0 -12px; border-radius: 8px; font-size: .88rem; }
+        .fv-minirow.hi { background: rgba(255,255,255,.09); }
+        .fv-minirow .fv-pos { width: 18px; color: #cfcfd8; }
+        .fv-minirow .fv-logo { width: 22px; height: 22px; border-radius: 5px; flex: none; display: grid; place-items: center; font-size: .6rem; font-weight: 800; color: #fff; overflow: hidden; }
+        .fv-minirow .fv-logo img { width: 100%; height: 100%; object-fit: contain; }
+        .fv-minirow .fv-logo:has(img) { padding: 2px; box-sizing: border-box; }
         .fv-minirow .fv-nm { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .fv-minirow .fv-pts { font-weight: 800; font-variant-numeric: tabular-nums; }
-        .fv-hl { display: flex; gap: 11px; align-items: center; padding: 9px 0; border-top: 1px solid rgba(255,255,255,.08); }
-        .fv-hl:first-of-type { border-top: 0; }
-        .fv-hl img { width: 52px; height: 52px; border-radius: 10px; object-fit: cover; object-position: center top; background: #222; flex: none; }
-        .fv-hl .fv-hl-t { font-weight: 700; font-size: .9rem; line-height: 1.3; }
-        .fv-hl .fv-hl-s { color: #a9a9b3; font-size: .8rem; margin-top: 2px; }
+        .fv-minirow .fv-pts { font-variant-numeric: tabular-nums; color: #e7e7ee; }
+        .fv-news { display: flex; gap: 12px; align-items: center; padding: 9px 0; color: inherit; text-decoration: none; }
+        .fv-news img, .fv-news .fv-ph { width: 74px; height: 50px; border-radius: 6px; object-fit: cover; background: #23242b; flex: none; }
+        .fv-news .fv-nt { font-weight: 600; font-size: .83rem; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .fv-news .fv-ns { color: #8d8d98; font-size: .74rem; margin-top: 3px; }
+        .fv-news:hover .fv-nt { color: #ff8080; }
         .fv-wrap h3 { margin: 30px 0 12px; font-size: 1.05rem; letter-spacing: .06em; text-transform: uppercase; color: #d7d7de; }
         .fv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
         .fv-card { position: relative; border: 1px solid rgba(255,255,255,.14); border-radius: 16px; overflow: hidden; background: #17181d; cursor: pointer; text-align: left; padding: 0; color: #fff; }
@@ -132,8 +155,14 @@
         .fv-card .fv-team { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 7px; vertical-align: -1px; }
         .fv-empty { border: 1px dashed rgba(255,255,255,.25); border-radius: 14px; padding: 22px; color: #a9a9b3; text-align: center; }
         .fv-x { position: absolute; top: 8px; right: 8px; z-index: 3; width: 28px; height: 28px; border-radius: 50%; border: 0; background: rgba(0,0,0,.55); color: #fff; cursor: pointer; font-size: 14px; }
-        @media (max-width: 760px) { .fv-dash { grid-template-columns: 1fr; } .fv-hero { grid-template-columns: 1fr; } .fv-hero figure { min-height: 230px; order: -1; } .fv-hero .fv-hero-txt { padding: 18px 20px 22px; } }
+        @media (max-width: 860px) { .fv-dash { grid-template-columns: 1fr; } .fv-dcard { min-height: 0; } }
+        @media (max-width: 760px) { .fv-stage { padding: 14px 14px 18px; } .fv-photo { width: 92%; right: -12%; top: 40px; height: 380px; opacity: .85; }
+            .fv-hero { min-height: 400px; } .fv-hero-txt { max-width: 100%; padding-top: 230px; } .fv-num { top: 70px; right: 2%; font-size: 7rem; } }
         @media (max-width: 640px) { .fv-grid { grid-template-columns: 1fr 1fr; gap: 10px; } .fv-card img { height: 150px; } }`;
+    var fontLink = document.createElement('link');
+    fontLink.rel = 'stylesheet';
+    fontLink.href = 'https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800&display=swap';
+    document.head.appendChild(fontLink);
     document.head.appendChild(css);
 
     /* ---------- tombol hati di kartu ---------- */
@@ -193,9 +222,57 @@
     function cacheSet(key, data) { try { localStorage.setItem(key, JSON.stringify({ ts: Date.now(), data: data })); } catch (e) {} }
     function fetchJSON(url) { return fetch(url).then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }); }
     function driverById(id) { return (typeof driversData !== 'undefined') ? (driversData[id] || null) : null; }
-    function teamOf(driverName) {
+    var nk = function (s) { return norm(s).replace(/[^a-z0-9]/g, ''); };
+    function teamKey(value) {
+        var key = nk(value).replace(/f1team$|team$/, '');
+        return key === 'rb' ? 'racingbulls' : key;
+    }
+    function teamByCtor(ctor) {
+        if (typeof teamsData === 'undefined' || !ctor) return null;
+        var c = teamKey(ctor);
+        if (!c) return null;
+        return teamsData.find(function (t) {
+            return [t.name, t.full].some(function (x) { var k = teamKey(x); return k && (k === c || k.indexOf(c) !== -1 || c.indexOf(k) !== -1); });
+        }) || null;
+    }
+    function teamOf(driverName, ctor) {
         if (typeof teamsData === 'undefined') return null;
-        return teamsData.find(function (t) { return (t.drivers || []).indexOf(driverName) !== -1; }) || null;
+        var n = norm(driverName), last = n.split(' ').pop();
+        var t = teamsData.find(function (t) { return (t.drivers || []).some(function (x) { return norm(x) === n; }); });
+        if (!t && last) t = teamsData.find(function (t) { return (t.drivers || []).some(function (x) { return norm(x).split(' ').pop() === last; }); });
+        return t || teamByCtor(ctor) || null;
+    }
+    /* logo tim: pakai field di teamsData, kalau kosong ambil dari objek teamLogos (script.js) */
+    function logoOf(team, ctor) {
+        if (!team && !ctor) return '';
+        var v = team ? ( team.logo || team.img || team.logoImg || '') : '';
+        if (v && typeof v === 'object') v = v.src || v.logo || v.url || v.img || '';
+        if (v) return v;
+        var map = window.teamLogos || (typeof teamLogos !== 'undefined' ? teamLogos : null);
+        if (!map) return '';
+        var names = (team ? [team.name, team.full] : []).concat(ctor ? [ctor] : []);
+        var keys = Object.keys(map);
+        for (var i = 0; i < names.length; i++) {
+            var want = teamKey(names[i]);
+            if (!want) continue;
+            var key = keys.find(function (k) { return teamKey(k) === want; }) ||
+                keys.find(function (k) {
+                    var candidate = teamKey(k);
+                    return candidate && (candidate.indexOf(want) !== -1 || want.indexOf(candidate) !== -1);
+                });
+            if (key) return map[key];
+        }
+        return '';
+    }
+    function ctorForDriver(name) {
+        if (!standingsMap) return '';
+        var n = norm(name), standing = standingsMap[n];
+        if (standing && standing.ctor) return standing.ctor;
+        var last = n.split(' ').pop();
+        var key = Object.keys(standingsMap).find(function (k) {
+            return last && k.split(' ').pop() === last && standingsMap[k].ctor;
+        });
+        return key ? standingsMap[key].ctor : '';
     }
     function driverByName(name) {
         if (typeof driversData === 'undefined') return null;
@@ -204,26 +281,31 @@
     }
 
     var page = null, heroEl = null, chipsEl = null, nextEl = null, standEl = null, hlEl = null,
-        listD = null, listT = null, emptyD = null, emptyT = null, countEl = null, searchEl = null;
-    var focusId = null, standingsMap = null;
+        listD = null, listT = null, emptyD = null, emptyT = null, countEl = null, searchEl = null, avatarEl = null;
+    var focusId = null, standingsMap = null, standRows = null, newsItems = null;
 
     function renderFocus() {
         if (!heroEl) return;
         var d = load();
+        if (avatarEl) avatarEl.innerHTML = '';
         if (!d.d.length) {
             focusId = null;
             chipsEl.innerHTML = '';
-            heroEl.innerHTML = '<figure><img src="assets/images/bg/hero-f1.jpg" alt="" onerror="this.remove()">' +
-                '<div class="fv-empty"><div><div class="fv-eyebrow">Driver Focus</div><p style="margin:10px 0 4px;font-weight:700">Belum ada pembalap favorit</p><p style="margin:0">Ketuk ♥ di kartu pembalap mana pun untuk menjadikannya fokus di sini.</p></div></div></figure>';
+            heroEl.innerHTML = '<div class="fv-blank"><div class="fv-eyebrow">Driver Focus</div><h2 class="fv-name" style="font-size:1.8rem">Belum ada favorit</h2>' +
+                '<p class="fv-tag">Ketuk ♥ di kartu pembalap mana pun untuk menjadikannya fokus di sini.</p></div>';
+            renderStandings();
             return;
         }
         if (!focusId || d.d.indexOf(String(focusId)) === -1) focusId = d.d[0];
         var drv = driverById(focusId);
         if (!drv) return;
-        var parts = drv.name.trim().split(/\s+/), last = parts.pop(), first = parts.join(' ');
-        var team = teamOf(drv.name);
-        var title = (drv.title || '').split(':').slice(1).join(':').trim() || drv.team;
+        var ctor = ctorForDriver(drv.name);
+        var team = teamOf(drv.name, ctor);
+        var logo = logoOf(team, ctor);
+        var title = (drv.title || '').split(':').slice(1).join(':').trim() || '';
         var st = standingsMap ? standingsMap[norm(drv.name)] : null;
+        var nomor = drv.stats && drv.stats.Nomor ? String(drv.stats.Nomor) : '';
+        if (avatarEl) avatarEl.innerHTML = (drv.photo ? '<img src="' + esc(drv.photo) + '" alt="" onerror="this.remove()">' : '') + '<i>' + (d.d.length + d.t.length) + '</i>';
         chipsEl.innerHTML = '';
         d.d.forEach(function (id) {
             var dd = driverById(id);
@@ -237,13 +319,101 @@
         });
         heroEl.innerHTML =
             '<div class="fv-hero-txt"><div class="fv-eyebrow">Driver Focus</div>' +
-            '<p class="fv-first">' + esc(first) + '</p><h2 class="fv-last">' + esc(last) + '</h2>' +
-            '<div class="fv-teamline">' + (team ? '<span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:' + esc(team.color) + ';margin-right:8px"></span>' : '') + esc(drv.team) + (drv.stats && drv.stats.Nomor ? ' • #' + esc(drv.stats.Nomor) : '') + '</div>' +
-            '<p class="fv-tag">' + esc(title) + '</p>' +
-            (st ? '<div class="fv-stat"><b>P' + st.pos + '</b><span>' + st.points + ' poin • klasemen ' + YEAR + '</span></div>' : '') +
-            '</div>' +
-            '<figure>' + (drv.photo ? '<img src="' + esc(drv.photo) + '" alt="' + esc(drv.name) + '" onerror="this.remove()">' : '') +
-            (drv.stats && drv.stats.Nomor ? '<span class="fv-num">' + esc(drv.stats.Nomor) + '</span>' : '') + '</figure>';
+            '<h2 class="fv-name">' + esc(drv.name).replace(' ', '<br>') + '</h2>' +
+            '<div class="fv-teamline">' + (logo ? '<img class="fv-tlogo" src="' + esc(logo) + '" alt="" onerror="this.remove()">' : '') + '<span>' + esc(drv.team || (team ? team.name : '')) + '</span></div>' +
+            (title ? '<p class="fv-tag">' + esc(title) + '</p>' : '') +
+            (st ? '<div class="fv-stat"><b>P' + esc(st.pos) + '</b><span>' + esc(st.points) + ' poin • klasemen ' + YEAR + '</span></div>' : '') +
+            '<button type="button" class="fv-btn" id="fv-profile">Lihat profil <span>→</span></button></div>' +
+            (nomor ? '<span class="fv-num">' + esc(nomor) + '</span>' : '') +
+            '<div class="fv-photo">' + (drv.photo ? '<img src="' + esc(drv.photo) + '" alt="' + esc(drv.name) + '" onerror="this.remove()">' : '') + '</div>';
+        bindProfile(focusId);
+        renderStandings();
+        renderNews();
+    }
+
+    function bindProfile(id) {
+        var b = heroEl && heroEl.querySelector('#fv-profile');
+        if (b) b.addEventListener('click', function () { if (typeof window.openDetail === 'function') window.openDetail(Number(id)); });
+    }
+
+    function teamLogo(name, ctor) {
+        var team = teamOf(name, ctor);
+        var bg = team && team.color ? team.color : '#555';
+        var logo = logoOf(team, ctor);
+        var ini = team && team.name ? team.name.replace(/[^A-Za-z]/g, '').slice(0, 2).toUpperCase() : '';
+        return '<span class="fv-logo" style="background:' + (logo ? '#fff' : esc(bg)) + '">' + (logo ? '<img src="' + esc(logo) + '" alt="" onerror="this.remove()">' : esc(ini)) + '</span>';
+    }
+
+    function renderStandings() {
+        if (!standEl) return;
+        if (!standRows) return;
+        var focusName = focusId && driverById(focusId) ? norm(driverById(focusId).name) : '';
+        var hit = standRows.some(function (r) { return norm(r.name) === focusName; });
+        standEl.innerHTML = '<h4>Standings</h4>' + standRows.map(function (r, i) {
+            var on = hit ? norm(r.name) === focusName : i === 0;
+            return '<div class="fv-minirow' + (on ? ' hi' : '') + '"><span class="fv-pos">' + esc(r.pos) + '</span>' + teamLogo(r.name, r.ctor) +
+                '<span class="fv-nm">' + esc(r.name) + '</span><span class="fv-pts">' + esc(r.points) + ' PTS</span></div>';
+        }).join('') + '<button type="button" class="fv-link" data-go="klasemen-page">Lihat klasemen lengkap</button>';
+        var b = standEl.querySelector('[data-go]');
+        if (b) b.addEventListener('click', function () { if (typeof window.showPage === 'function') window.showPage('klasemen-page'); });
+    }
+
+    /* ---------- berita (pengganti Race Highlights) ---------- */
+    var NEWS_FEEDS = [
+        'https://www.motorsport.com/rss/f1/news/',
+        'https://www.autosport.com/rss/f1/news/',
+        'https://news.google.com/rss/search?q=formula+1&hl=id&gl=ID&ceid=ID:id'
+    ];
+    var NEWS_MORE = 'https://news.google.com/search?q=formula%201&hl=id&gl=ID&ceid=ID%3Aid';
+    function ago(s) {
+        var t = new Date(String(s).replace(' ', 'T') + (/[zZ]|[+-]\d\d:?\d\d$/.test(s) ? '' : 'Z')).getTime();
+        if (!t) return '';
+        var m = Math.max(1, Math.round((Date.now() - t) / 60000));
+        if (m < 60) return m + ' mnt lalu';
+        if (m < 1440) return Math.round(m / 60) + ' jam lalu';
+        return Math.round(m / 1440) + ' hari lalu';
+    }
+    function parseFeed(j) {
+        return (j.items || []).slice(0, 10).map(function (it) {
+            var title = it.title || '', src = (j.feed && j.feed.title) || '';
+            var cut = title.lastIndexOf(' - ');
+            if (cut > 20) { src = title.slice(cut + 3); title = title.slice(0, cut); }
+            var img = it.thumbnail || (it.enclosure && it.enclosure.link) || '';
+            if (!img) { var mm = String(it.content || it.description || '').match(/<img[^>]+src=["']([^"']+)/i); if (mm) img = mm[1]; }
+            if (img && !/^https?:/.test(img)) img = '';
+            return { title: title, link: it.link, src: src.replace(/^Google News.*/, 'Berita F1'), date: it.pubDate, img: img };
+        }).filter(function (x) { return x.title && x.link; });
+    }
+    function loadNews() {
+        var cached = cacheGet('f1_fv_news2', 15 * 60 * 1000);
+        if (cached && cached.length) { newsItems = cached; renderNews(); return; }
+        Promise.all(NEWS_FEEDS.map(function (u) {
+            return fetchJSON('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(u)).then(parseFeed).catch(function () { return []; });
+        })).then(function (lists) {
+            var all = [].concat.apply([], lists), seen = {};
+            all = all.filter(function (n) { if (seen[n.link]) return false; seen[n.link] = 1; return true; });
+            // berita yang punya gambar didahulukan, lalu yang terbaru
+            all.sort(function (a, b) { return (!!b.img - !!a.img) || (new Date(b.date) - new Date(a.date)); });
+            if (!all.length) { if (hlEl) hlEl.innerHTML = '<h4>Berita Terbaru</h4><p class="fv-racedate">Berita belum bisa dimuat.</p>'; return; }
+            newsItems = all.slice(0, 12);
+            cacheSet('f1_fv_news2', newsItems);
+            renderNews();
+        });
+    }
+    function renderNews() {
+        if (!hlEl || !newsItems) return;
+        var drv = focusId ? driverById(focusId) : null;
+        var items = newsItems.slice();
+        if (drv) { // berita yang menyebut pembalap fokus naik ke atas
+            var last = norm(drv.name.split(' ').pop());
+            items.sort(function (a, b) { return (norm(b.title).indexOf(last) !== -1) - (norm(a.title).indexOf(last) !== -1); });
+        }
+        items = items.slice(0, 3);
+        hlEl.innerHTML = '<h4>Berita Terbaru</h4>' + items.map(function (n) {
+            var th = n.img ? '<img src="' + esc(n.img) + '" alt="" loading="lazy" onerror="this.outerHTML=\'<span class=&quot;fv-ph&quot;></span>\'">' : '<img src="assets/images/bg/hero-f1.jpg" alt="" onerror="this.outerHTML=\'<span class=&quot;fv-ph&quot;></span>\'">';
+            return '<a class="fv-news" href="' + esc(n.link) + '" target="_blank" rel="noopener noreferrer">' + th +
+                '<div><div class="fv-nt">' + esc(n.title) + '</div><div class="fv-ns">' + esc(n.src) + (n.date ? ' • ' + esc(ago(n.date)) : '') + '</div></div></a>';
+        }).join('') + '<a class="fv-link" href="' + NEWS_MORE + '" target="_blank" rel="noopener noreferrer">Lihat semua berita</a>';
     }
 
     function renderFav() {
@@ -258,12 +428,14 @@
             d.d.forEach(function (id) {
                 var drv = driverById(id);
                 if (!drv) return;
-                var team = teamOf(drv.name);
+                var ctor = ctorForDriver(drv.name);
+                var team = teamOf(drv.name, ctor);
+                var logo = logoOf(team, ctor);
                 var card = document.createElement('article');
                 card.className = 'fv-card';
                 card.innerHTML = '<img src="' + esc(drv.photo || '') + '" alt="' + esc(drv.name) + '" loading="lazy" onerror="this.remove()">' +
                     '<div class="fv-info"><div class="fv-name">' + esc(drv.name) + '</div>' +
-                    '<div class="fv-meta"><span class="fv-team" style="background:' + (team ? team.color : '#888') + '"></span>' + esc(drv.team || (team ? team.name : '')) + (drv.stats && drv.stats.Nomor ? ' • #' + esc(drv.stats.Nomor) : '') + '</div></div>';
+                    '<div class="fv-meta">' + (logo ? '<img class="fv-mlogo" src="' + esc(logo) + '" alt="" onerror="this.remove()">' : '<span class="fv-team" style="background:' + (team ? team.color : '#888') + '"></span>') + esc(drv.team || (team ? team.name : '')) + (drv.stats && drv.stats.Nomor ? ' • #' + esc(drv.stats.Nomor) : '') + '</div></div>';
                 var x = document.createElement('button');
                 x.type = 'button'; x.className = 'fv-x'; x.textContent = '✕'; x.setAttribute('aria-label', 'Hapus dari favorit');
                 x.addEventListener('click', function (e) { e.stopPropagation(); toggle('driver', id); });
@@ -304,31 +476,28 @@
         });
     }
 
+    var FLAGS = { italy: 'it', belgium: 'be', netherlands: 'nl', uk: 'gb', monaco: 'mc', spain: 'es', austria: 'at', hungary: 'hu', azerbaijan: 'az', singapore: 'sg',
+        usa: 'us', uae: 'ae', mexico: 'mx', brazil: 'br', qatar: 'qa', 'saudi arabia': 'sa', bahrain: 'bh', australia: 'au', japan: 'jp', china: 'cn', canada: 'ca',
+        france: 'fr', germany: 'de', portugal: 'pt', turkey: 'tr', 'united states': 'us', 'united kingdom': 'gb' };
+
     function loadDashboard() {
-        var cached = cacheGet('f1_fv_stand', 20 * 60 * 1000);
-        if (cached) { standingsMap = cached.map; renderStand(cached.rows); renderFocus(); }
+        function setStand(rows, map) { standRows = rows; standingsMap = map; renderFocus(); }
+        var cached = cacheGet('f1_fv_stand3', 20 * 60 * 1000);
+        if (cached) setStand(cached.rows, cached.map);
         else fetchJSON(JOLPICA + 'current/driverStandings.json').then(function (j) {
             var list = (j.MRData && j.MRData.StandingsTable && j.MRData.StandingsTable.StandingsLists[0]) || {};
             var rows = (list.DriverStandings || []).slice(0, 4).map(function (r) {
-                return { pos: r.position, name: (r.Driver.givenName + ' ' + r.Driver.familyName), points: r.points };
+                var ctor = (r.Constructors && r.Constructors[0] && r.Constructors[0].name) || '';
+                return { pos: r.position, name: (r.Driver.givenName + ' ' + r.Driver.familyName), points: r.points, ctor: ctor };
             });
             var map = {};
-            (list.DriverStandings || []).forEach(function (r) { map[norm(r.Driver.givenName + ' ' + r.Driver.familyName)] = { pos: r.position, points: r.points }; });
-            standingsMap = map;
-            cacheSet('f1_fv_stand', { rows: rows, map: map });
-            renderStand(rows); renderFocus();
+            (list.DriverStandings || []).forEach(function (r) {
+                var ctor = (r.Constructors && r.Constructors[0] && r.Constructors[0].name) || '';
+                map[norm(r.Driver.givenName + ' ' + r.Driver.familyName)] = { pos: r.position, points: r.points, ctor: ctor };
+            });
+            cacheSet('f1_fv_stand3', { rows: rows, map: map });
+            setStand(rows, map);
         }).catch(function () { if (standEl) standEl.innerHTML = '<h4>Standings</h4><p class="fv-racedate">Klasemen belum bisa dimuat.</p>'; });
-        function renderStand(rows) {
-            if (!standEl) return;
-            standEl.innerHTML = '<h4>Standings</h4>' + rows.map(function (r) {
-                var team = teamOf(r.name);
-                return '<div class="fv-minirow"><span class="fv-pos">' + esc(r.pos) + '</span>' +
-                    '<span class="fv-dot" style="background:' + (team ? team.color : '#888') + '"></span>' +
-                    '<span class="fv-nm">' + esc(r.name) + '</span><span class="fv-pts">' + esc(r.points) + ' PTS</span></div>';
-            }).join('') + '<button type="button" class="fv-link" data-go="klasemen-page">Lihat klasemen lengkap →</button>';
-            var b = standEl.querySelector('[data-go]');
-            if (b) b.addEventListener('click', function () { if (typeof window.showPage === 'function') window.showPage('klasemen-page'); });
-        }
 
         var sched = cacheGet('f1_fv_sched', 3600e3);
         if (sched) renderNext(sched);
@@ -345,36 +514,35 @@
             });
             if (!nx) { nextEl.innerHTML = '<h4>Next Race</h4><p class="fv-racedate">Musim ' + YEAR + ' sudah selesai.</p>'; return; }
             var img = trackImg(nx.Circuit.circuitName);
+            var when = new Date(nx.date + 'T' + (nx.time || '12:00:00Z'));
+            var days = Math.ceil((when.getTime() - now) / 864e5);
+            var flag = FLAGS[norm((nx.Circuit.Location && nx.Circuit.Location.country) || '')];
+            var dtxt = when.toLocaleDateString('id-ID', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase();
             nextEl.innerHTML = '<h4>Next Race</h4>' +
+                '<div class="fv-racehead">' + (flag ? '<img src="https://flagcdn.com/w40/' + flag + '.png" alt="" onerror="this.remove()">' : '') + '<span>' + esc(nx.raceName) + '</span></div>' +
+                '<div class="fv-circuit">' + esc(nx.Circuit.circuitName) + '</div>' +
                 (img ? '<img class="fv-track" src="' + esc(img) + '" alt="Lintasan ' + esc(nx.Circuit.circuitName) + '" loading="lazy" onerror="this.remove()">' : '') +
-                '<div class="fv-racename">' + esc(nx.raceName) + '</div>' +
-                '<div class="fv-racedate">' + esc(nx.Circuit.circuitName) + '<br>' + fmtDate(new Date(nx.date + 'T' + (nx.time || '12:00:00Z'))) + '</div>' +
-                '<button type="button" class="fv-link" data-go="schedule">Lihat jadwal →</button>';
-            var b = nextEl.querySelector('[data-go]');
-            if (b) b.addEventListener('click', function () {
+                '<div class="fv-bigdate">' + esc(dtxt) + '</div>' +
+                '<div class="fv-countdown">' + (days <= 1 ? 'Race Day' : days + ' hari lagi') + '</div>';
+            var ti = nextEl.querySelector('.fv-track');
+            if (ti) ti.addEventListener('load', function () {
+                /* gambar transparan -> jadi putih (default CSS). gambar dengan latar solid -> pilih inversi yang sesuai */
+                try {
+                    var c = document.createElement('canvas'); c.width = c.height = 32;
+                    var x = c.getContext('2d'); x.drawImage(ti, 0, 0, 32, 32);
+                    var d = x.getImageData(0, 0, 32, 32).data, n = 0;
+                    for (var i = 3; i < d.length; i += 4) if (d[i] > 40) n++;
+                    if (n / 1024 > .9) ti.classList.add((d[0] * .299 + d[1] * .587 + d[2] * .114) > 128 ? 'tk-l' : 'tk-d');
+                } catch (e) {}
+            });
+            nextEl.style.cursor = 'pointer';
+            nextEl.onclick = function () {
                 var a = document.querySelector('a[data-schedule]');
                 if (a) a.click(); else if (typeof window.showPage === 'function') window.showPage('schedule-page');
-            });
+            };
         }
 
-        var res = cacheGet('f1_fv_res', 3600e3);
-        if (res) renderHl(res);
-        else fetchJSON(JOLPICA + YEAR + '/results.json?limit=2000').then(function (j) {
-            var races = (j.MRData && j.MRData.RaceTable && j.MRData.RaceTable.Races) || [];
-            cacheSet('f1_fv_res', races);
-            renderHl(races);
-        }).catch(function () { if (hlEl) hlEl.innerHTML = '<h4>Race Highlights</h4><p class="fv-racedate">Highlight belum bisa dimuat.</p>'; });
-        function renderHl(races) {
-            if (!hlEl) return;
-            var done = races.filter(function (r) { return (r.Results || []).length; }).slice(-3).reverse();
-            if (!done.length) { hlEl.innerHTML = '<h4>Race Highlights</h4><p class="fv-racedate">Belum ada balapan musim ini.</p>'; return; }
-            hlEl.innerHTML = '<h4>Race Highlights</h4>' + done.map(function (r) {
-                var w = r.Results[0] && r.Results[0].Driver ? (r.Results[0].Driver.givenName + ' ' + r.Results[0].Driver.familyName) : '';
-                var hit = driverByName(w);
-                var img = hit && hit.d.photo ? '<img src="' + esc(hit.d.photo) + '" alt="' + esc(w) + '" loading="lazy" onerror="this.remove()">' : '<span style="width:52px;height:52px;border-radius:10px;background:#222;display:inline-block;flex:none"></span>';
-                return '<div class="fv-hl">' + img + '<div><div class="fv-hl-t">' + esc(r.raceName) + '</div><div class="fv-hl-s">Pemenang: ' + esc(w || '—') + ' • ' + esc((r.Circuit && r.Circuit.circuitName) || '') + '</div></div></div>';
-            }).join('');
-        }
+        loadNews();
     }
 
     function mount() {
@@ -382,15 +550,16 @@
         page = document.createElement('div');
         page.id = 'favorit-page';
         page.className = 'page';
-        page.innerHTML = '<div class="fv-wrap">' +
-            '<div class="fv-search"><span>🔍</span><input type="text" id="fv-search" placeholder="Cari pembalap, tim…" aria-label="Cari favorit"></div>' +
+        page.innerHTML = '<div class="fv-wrap"><div class="fv-stage">' +
+            '<div class="fv-top"><div class="fv-search"><span>🔍</span><input type="text" id="fv-search" placeholder="Cari pembalap, tim…" aria-label="Cari favorit"></div>' +
+            '<div class="fv-avatar" id="fv-avatar"></div></div>' +
             '<div class="fv-hero" id="fv-hero"></div>' +
             '<div class="fv-chips" id="fv-chips"></div>' +
             '<div class="fv-dash">' +
             '<div class="fv-dcard" id="fv-next"><h4>Next Race</h4><p class="fv-racedate">Memuat jadwal…</p></div>' +
             '<div class="fv-dcard" id="fv-stand"><h4>Standings</h4><p class="fv-racedate">Memuat klasemen…</p></div>' +
-            '<div class="fv-dcard" id="fv-hl"><h4>Race Highlights</h4><p class="fv-racedate">Memuat highlight…</p></div>' +
-            '</div>' +
+            '<div class="fv-dcard" id="fv-hl"><h4>Berita Terbaru</h4><p class="fv-racedate">Memuat berita…</p></div>' +
+            '</div></div>' +
             '<h3>♥ Pembalap favorit (<span id="fv-count">0 favorit</span>)</h3><div class="fv-grid" id="fv-drivers"></div>' +
             '<div class="fv-empty" id="fv-empty-d">Belum ada pembalap favorit. Ketuk ♥ di kartu pembalap mana pun.</div>' +
             '<h3>♥ Tim favorit</h3><div class="fv-grid" id="fv-teams"></div>' +
@@ -408,6 +577,7 @@
         emptyT = page.querySelector('#fv-empty-t');
         countEl = page.querySelector('#fv-count');
         searchEl = page.querySelector('#fv-search');
+        avatarEl = page.querySelector('#fv-avatar');
         searchEl.addEventListener('input', applySearch);
 
         var menu = document.getElementById('nav-menu');
